@@ -1,0 +1,7 @@
+ROLES:
+Tracker: Shateesh
+Tester: Satyam
+Developer(s)
+Backend: Andrew, Miguel  
+Frontend: Satyam, Shateesh, Elie Elisee, JinWon
+Customer : Miguel
