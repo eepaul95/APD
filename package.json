@@ -1,0 +1,22 @@
+{
+  "name": "apd",
+  "version": "1.0.0",
+  "description": "The purpose of this project is to allow easy access to know who a person's politican is.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC59939/APD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CSC59939/APD/issues"
+  },
+  "homepage": "https://github.com/CSC59939/APD#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
