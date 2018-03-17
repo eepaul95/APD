@@ -4,7 +4,8 @@
   "description": "The purpose of this project is to allow easy access to know who a person's politican is.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
