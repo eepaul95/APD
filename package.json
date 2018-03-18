@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/CSC59939/APD#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "propublica-congress-node": "^0.1.2"
   }
 }
