@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-const models = require('./models');
+
 
 const PORT = process.env.PORT || 8000;
 
@@ -10,12 +10,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+//Give access to the public (for css and images) and node_modules (for bootstrap) folder
 app.use(express.static('./public'));
 app.use(express.static('./node_modules'));
 
 
-
+//Allow handlebars to be use to render the view
 const exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({
   layoutsDir: './views/layouts',
@@ -29,14 +29,10 @@ app.set('views', `${__dirname}/views/`);
 
 // Load up all of the controllers
 const controllers = require('./controllers');
-app.use(controllers)
+app.use(controllers);
+
+//Listen to the port and run the server
+app.listen(PORT, () => console.log(`Server is up and running on port: ${PORT}`));
 
 
-// First, make sure the Database tables and models are in sync
-// then, start up the server and start listening.
-models.sequelize.sync({force: false})
-  .then(() => {
-    app.listen(PORT, () => {
-      console.log(`Server is up and running on port: ${PORT}`)
-    });
-  });
+
