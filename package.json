@@ -1,23 +1,24 @@
 {
-  "name": "apd",
+  "name": "backend-starter-code",
   "version": "1.0.0",
-  "description": "The purpose of this project is to allow easy access to know who a person's politican is.",
+  "description": "Starter code for an Express/Sequelize backend.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "nodemon -L app.js",
+    "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CSC59939/APD.git"
-  },
-  "author": "",
+  "author": "Edgardo Molina",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CSC59939/APD/issues"
+  "devDependencies": {
+    "jest": "^21.2.1"
   },
-  "homepage": "https://github.com/CSC59939/APD#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.12.1",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.13.3"
   }
 }
