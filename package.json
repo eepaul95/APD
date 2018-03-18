@@ -1,0 +1,35 @@
+{
+  "name": "APD",
+  "version": "1.0.0",
+  "description": "The purpose of this project is to allow easy access to know who a person's politican is.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon -L app.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CSC59939/APD.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CSC59939/APD/issues"
+  },
+  "homepage": "https://github.com/CSC59939/APD#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.12.1",
+    "pg": "^7.3.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.13.3",
+    "bootstrap": "^4.0.0",
+    "jquery": "^1.9.1 -3",
+    "popper.js": "^1.12.9"
+  }
+}
