@@ -18,7 +18,7 @@ router.get('/:statename', (req, res) => {
   }).catch(() => {
   	res.render('home');
   })
-  
+
 });
 
 
