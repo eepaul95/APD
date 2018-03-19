@@ -1,0 +1,17 @@
+<div >
+
+	<h2> The senators of {{state}} </h2>
+	<hr class= "small"/>
+	<div class = "row">
+	{{#each senators}}
+		<div class="col-md-3 justify-content-left">
+			<h3>{{this.name}}</h3>
+			<p> role: {{this.role}}</p>
+			<p> gender: {{this.gender}} </p>
+			<p> political party: {{this.party}}</p>
+		</div>
+	{{/each}}
+	</div>
+
+
+</div>
