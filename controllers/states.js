@@ -13,8 +13,8 @@ router.get('/:statename', (req, res) => {
   client.membersCurrentByStateOrDistrict({
   	chamber: 'senate',
   	state: stateAbbr
-  }).then((stateInfo) => {
-  	res.render('states/single', {politicians: stateInfo.results, state: stateName});
+  }).then((senatorInfo) => {
+  	res.render('states/single', {senators: senatorInfo.results, state: stateName});
   }).catch(() => {
   	res.render('home');
   })
