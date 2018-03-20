@@ -10,15 +10,28 @@ const router = express.Router();
 router.get('/:statename', (req, res) => {
   const stateName = helpers.checkStateWithSpace(req.params.statename);
   const stateAbbr = madison.getStateAbbrevSync(stateName);
+  const politicians = {};
   client.membersCurrentByStateOrDistrict({
   	chamber: 'senate',
   	state: stateAbbr
   }).then((senatorInfo) => {
-  	res.render('states/single', {senators: senatorInfo.results, state: stateName});
-  }).catch(() => {
-  	res.render('home');
+  		client.membersCurrentByStateOrDistrict({
+  			chamber: 'house',
+  			state: stateAbbr,
+  			district: 1
+  		}).then((representativeInfo) => {
+  		res.render('states/single', {senators: senatorInfo.results, representatives: representativeInfo.results, state: stateName});
+  })
+<<<<<<< HEAD
+
+=======
+  }).catch((e) => {
+  	console.log(e);
+  	res.redirect('/');
   })
 
+  
+>>>>>>> c19aa63b024ea172fdc1144d910fb57f0dfb5fa5
 });
 
 
