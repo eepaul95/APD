@@ -27,7 +27,7 @@ router.get('/:statename', (req, res) => {
   	res.redirect('/');
   })
 
-  
+
 });
 
 
