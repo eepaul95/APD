@@ -1,0 +1,18 @@
+#header h1 {
+  text-align: center;
+}
+
+#Teammates h3 {
+    text-align: center;
+}
+
+#Teammates h4 {
+    text-align: center;
+}
+
+.container{
+    border-style: solid;
+    border-width: medium;
+    padding: 25px;
+    margin: 25px;
+}
