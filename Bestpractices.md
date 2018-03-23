@@ -47,3 +47,18 @@ methodology.
       All the handlebar file will be rendered from the main layout which already contains the `<html>`, `<head>`, `<body>` tags.
       So, when you are creating a new handlebars file, just make sure that your html/handlebars code is inside of a `<div>` and the
       extension is `.handlebars`. It is best practice to name the file "index.handlebars" so the engine will know which file to render.
+      
+  * ### All styling and images should be added in the public file.
+      The public file is for the static information such as the style and the images. All the css files should be in the folder css 
+      which is inside of the public file. All the image files should be in the folder img (which is not yet created) which is inside
+      of the public file. 
+      
+ * ### Consistent style should be added to the main layout
+      If you want your style to be consistent through the entire website, it is best practice to insert the link in the header of
+      the main layout if a new css file is created for it. I think also it will be better if you just added the style in the "main.css"
+      file.
+      
+ * ### Particular style should be added to the its particular file
+      Otherwise, if the style is for a particular page. It is best practice to create the css file inside the css folder with the same 
+      name as the page like "pagename.css" or "pagenameStyle.css". Then include the link directly to the handlebars of this particular
+      page.
