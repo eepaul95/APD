@@ -43,7 +43,7 @@ methodology.
        - create the folder single for GET /route/:multipleRender. To render the page which show the data of a single element from
          multiple elements saved.
          
-  * ### No need for `<html>`, `<head>`, `<body>` when creating a new handlebar file.
+  * ### No need for `<html>`, `<head>`, `<body>` when creating a new handlebars file.
       All the handlebar file will be rendered from the main layout which already contains the `<html>`, `<head>`, `<body>` tags.
       So, when you are creating a new handlebars file, just make sure that your html/handlebars code is inside of a `<div>` and the
       extension is `.handlebars`. It is best practice to name the file "index.handlebars" so the engine will know which file to render.
