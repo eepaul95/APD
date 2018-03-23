@@ -58,7 +58,7 @@ methodology.
       the main layout if a new css file is created for it. I think also it will be better if you just added the style in the "main.css"
       file.
       
- * ### Particular style should be added to the its particular file
+ * ### Particular style should be added to its particular file
       Otherwise, if the style is for a particular page. It is best practice to create the css file inside the css folder with the same 
       name as the page like "pagename.css" or "pagenameStyle.css". Then include the link directly to the handlebars of this particular
       page.
