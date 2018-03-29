@@ -30,7 +30,7 @@ methodology.
       already in the middlewares folder. If you are creating your own file, ensure that you export it at the end.
       
   * ### All test files should be in the folder "\_\_tests\_\_" _(two underscore before and after test)_
-      This folder is not yet created. However, when the test are created, it will be best to create a folder "__tests__" and 
+      This folder is not yet created. However, when the test are created, it will be best to create a folder "__\_\_tests\_\___" and 
       save the test file into it. If this is done, it will be optional to name your test "testname.test.js" or "testname.js"
       both will run when in the folder \_\_tests\_\_.(with Jest)
       
