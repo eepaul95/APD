@@ -29,10 +29,10 @@ methodology.
       create a new file for your function in the middlewares folder or adding the function in the viewHelpers.js file
       already in the middlewares folder. If you are creating your own file, ensure that you export it at the end.
       
-  * ### All test files should be in the folder "\_\_test\_\_" _(two underscore before and after test)_
-      This folder is not yet created. However, when the test are created, it will be best to create a folder "__test__" and 
+  * ### All test files should be in the folder "\_\_tests\_\_" _(two underscore before and after test)_
+      This folder is not yet created. However, when the test are created, it will be best to create a folder "__tests__" and 
       save the test file into it. If this is done, it will be optional to name your test "testname.test.js" or "testname.js"
-      both will run when in the folder \_\_test\_\_.(with Jest)
+      both will run when in the folder \_\_tests\_\_.(with Jest)
       
   * ### Inside of the view folder of each route, create a folder for each http request methods.
        Different http request method, we'll need to render different page. So, it is crucial to create a folder for each
