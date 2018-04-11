@@ -9,7 +9,9 @@ The purpose of this project is to allow easy access to know who a person's polit
 ## Project Quick Links
 
 * [Roles](https://github.com/CSC59939/APD/blob/master/IterationPlanning.md)
-* [Project](https://github.com/CSC59939/APD/projects/1)
+* Projects:
+  * [Iteration 1](https://github.com/CSC59939/APD/projects/1)
+  * [Iteration 2](https://github.com/CSC59939/APD/projects/3)
 * Milestones:
   * [Iteration 1](https://github.com/CSC59939/APD/milestone/2)
   * [Iteration 2](https://github.com/CSC59939/APD/milestone/1)
