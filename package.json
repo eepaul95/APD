@@ -5,12 +5,14 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon -L app.js",
-    "test": "jest"
+    "test": "mocha"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^21.2.1"
+    "chai": "^4.1.2",
+    "jest": "^21.2.1",
+    "mocha": "^5.0.5"
   },
   "repository": {
     "type": "git",
@@ -23,6 +25,7 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "bootstrap": "^4.0.0",
+    "chai": "^4.1.2",
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
     "jquery": "^1.9.1 -3",
