@@ -8,5 +8,14 @@ Managers:
 Developers:
 
 * **Backend:** Andrew, Miguel  
-* **Frontend:** Satyam, Shateesh, Elie Elisee, JinWon
+* **Frontend:** Satyam, Shateesh, Elie, JinWon
 * **Customer:** Miguel
+
+# Iteration 2
+
+* **Tracker:** Andrew
+* **Unit Tester:** Shateesh
+* **Customer:** Satyam
+* **Code Reviewer:** JinWon
+* **Presenter:** Miguel
+* **Continuous Integration:** Elie
