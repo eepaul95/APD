@@ -28,12 +28,12 @@ methodology.
       If for any reason, you need to create your own function or algorithm to handle a processus. You will need to either
       create a new file for your function in the middlewares folder or adding the function in the viewHelpers.js file
       already in the middlewares folder. If you are creating your own file, ensure that you export it at the end.
-
+      
   * ### All test files should be in the folder "test" 
-      Testing for this project is done with Mocha/Chai. Tests are written in the file test.js.
-      - each describe() is a group of tests written for one distinct part of the code
+      Testing for this project is done with Mocha/Chai. Tests are written in the file test.js. 
+      - each describe() is a group of tests written for one distinct part of the code 
       - each it() is a test used in a describe()
-
+      
   * ### Inside of the view folder of each route, create a folder for each http request methods.
        Different http request method, we'll need to render different page. So, it is crucial to create a folder for each
        http request method with the file "index.handlebars" included.
