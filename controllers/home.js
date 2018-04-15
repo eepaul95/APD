@@ -1,12 +1,12 @@
-const express = require("express");
+const express = require('express');
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get('/', (req, res) => {
   res.render("home");
 });
 
-router.get("/trending", (req, res) => {
+router.get('/trending', (req, res) => {
   res.render("trending");
 });
 
