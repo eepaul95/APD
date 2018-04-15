@@ -1,23 +1,31 @@
 var assert = require('chai').assert;
-var should = request('chai').should();
-var expect = request('chai').expect;
+var expect = require('chai').expect;
+var should = require('chai').should();
+var sinon = require('sinon');
+//var http_mocks = require('node-mocks-http');
+
 var request = require('request');
+var myHome = require('../controllers/myHome');
 
-/*
-TO DO: Ask the rest of the team how each controller functions work, so I can write test functions based on what to expect.
-*/
+function buildResponse(){
+  return http_mocks.createResponse({eventEmitter: require('events').EventEmitter});
+}
+describe('homepage tests', function(){
 
-describe('home.js test', function(){
-
-  it('Main page content', function(done) {
-
-    // this should be some code that will execute the function(s) in home.js
-    /*
+  it('Test: error != 404', function(done) {
+    //does the main page produce an error?
     request('http://localhost:8080' , function(error, response, body) {
-        expect(body).to.equal('Hello World');
+        expect(error).to.not.equal(404);
         done();
     });
-  */
+  });
 
+  it('Test: Home render', function(done){
+    var req, res, spy;
+    req = res = {};
+    spy = res.render = sinon.spy();
+    myHome(req, res);
+    expect(spy.calledOnce).to.equal(true);
+    done();
   });
 });
