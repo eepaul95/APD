@@ -34,9 +34,7 @@ methodology.
       Testing for this project is done with Mocha/Chai. Code coverage is done with Istanbul. Tests are written in the file test.js. 
       - each describe() is a group of tests written for one distinct part of the code 
       - each it() is a test used in a describe()
-      
-       
-      
+     
   * ### Inside of the view folder of each route, create a folder for each http request methods.
        Different http request method, we'll need to render different page. So, it is crucial to create a folder for each
        http request method with the file "index.handlebars" included.
