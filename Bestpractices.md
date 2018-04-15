@@ -29,10 +29,10 @@ methodology.
       create a new file for your function in the middlewares folder or adding the function in the viewHelpers.js file
       already in the middlewares folder. If you are creating your own file, ensure that you export it at the end.
 
-  * ### All test files should be in the folder "\_\_tests\_\_" _(two underscore before and after test)_
-      This folder is not yet created. However, when the test are created, it will be best to create a folder "__\_\_tests\_\___" and
-      save the test file into it. If this is done, it will be optional to name your test "testname.test.js" or "testname.js"
-      both will run when in the folder \_\_tests\_\_.(with Jest)
+  * ### All test files should be in the folder "test" 
+      Testing for this project is done with Mocha/Chai. Tests are written in the file test.js.
+      - each describe() is a group of tests written for one distinct part of the code
+      - each it() is a test used in a describe()
 
   * ### Inside of the view folder of each route, create a folder for each http request methods.
        Different http request method, we'll need to render different page. So, it is crucial to create a folder for each
