@@ -2,12 +2,32 @@
   text-align: center;
 }
 
-#Teammates h3 {
+#header p {
+  text-align: justify;
+}
+
+#Teammates h3, h4 {
     text-align: center;
 }
 
-#Teammates h4 {
+#Teammates a {
     text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#Teammates img {
+    width:200px;
+    height: auto;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row{
+  padding: 25px;
 }
 
 .container{
