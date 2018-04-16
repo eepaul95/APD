@@ -1,26 +1,30 @@
-<link rel="stylesheet" href="/css/states.css"/>
+<link rel="stylesheet" href="/css/states.css" />
 
-<div >
+<div>
 	<ul class="nav nav-tabs">
-  	<li class="active"><a data-toggle="tab" href="#senators">Senators</a></li>
-  	<li><a data-toggle="tab" href="#representatives">Representatives</a></li>
+		<li class="active">
+			<a data-toggle="tab" href="#senators">Senators</a>
+		</li>
+		<li>
+			<a data-toggle="tab" href="#representatives">Representatives</a>
+		</li>
 	</ul>
 
 	<div class="tab-content">
-  	<div id="senators" class="tab-pane fade in active">
+		<div id="senators" class="tab-pane fade in active">
 			<h2> The Senators of {{state}} </h2>
-			<hr class= "small"/>
-			<div class = "row">
-			{{#each senators}}
-			<div class="col-md-3 justify-content-left">
-				<h3>{{this.name}}</h3>
-				<p> role: {{this.role}}</p>
-				<p> gender: {{this.gender}} </p>
-				<p> political party: {{this.party}}</p>
+			<hr class="small" />
+			<div class="row">
+				{{#each senators}}
+				<div class="col-md-3 justify-content-left">
+					<h3>{{this.name}}</h3>
+					<p> role: {{this.role}}</p>
+					<p> gender: {{this.gender}} </p>
+					<p> political party: {{this.party}}</p>
+				</div>
+				{{/each}}
 			</div>
-			{{/each}}
-			</div>
-  	</div>
+		</div>
 
   	<div id="representatives" class="tab-pane fade">
 			<h2> The Representatives of {{state}} </h2>
@@ -35,8 +39,9 @@
 				<p> district: {{this.district}} </p>
 			</div>
 			{{/each}}
+
 			</div>
-  	</div>
-</div>
+		</div>
+	</div>
 
 </div>
