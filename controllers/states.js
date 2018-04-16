@@ -10,23 +10,83 @@ const router = express.Router();
 router.get('/:statename', (req, res) => {
   const stateName = helpers.checkStateWithSpace(req.params.statename);
   const stateAbbr = madison.getStateAbbrevSync(stateName);
-  const politicians = {};
-  client.membersCurrentByStateOrDistrict({
+  let senatorsInfo = {};
+  let representativesInfo = [];
+  let districtArray = helpers.arrayOfDistrict(stateAbbr);
+
+ /* client.membersCurrentByStateOrDistrict({
+      chamber: 'senate',
+      state: stateAbbr
+    }).then((senatorInfo) => {
+        senatorsInfo = senatorInfo.results;
+  }).catch((err)=> {
+      console.log(err);
+      res.redirect('/');
+  })
+
+
+  districtArray.forEach((districtnum) => {
+    client.membersCurrentByStateOrDistrict({
+      chamber: 'house',
+      state: stateAbbr,
+      district: districtnum
+    }).then((representativeInfo) => {
+        representativesInfo.push(representativeInfo.results[0]);
+    }).catch((err) => {
+        console.log(err);
+        res.redirect('/');
+    });
+  })
+ 
+  if(representativesInfo.length === districtArray.length){
+   res.render('states/single', {senators: senatorInfo.results, representatives: representativesInfo, state: stateName});
+}*/
+
+  /*client.membersCurrentByStateOrDistrict({
   	chamber: 'senate',
   	state: stateAbbr
   }).then((senatorInfo) => {
-  		client.membersCurrentByStateOrDistrict({
-  			chamber: 'house',
-  			state: stateAbbr,
-  			district: 1
-  		}).then((representativeInfo) => {
-  		res.render('states/single', {senators: senatorInfo.results, representatives: representativeInfo.results, state: stateName});
+      senatorsInfo = senatorInfo.results;
+    }).then(() => {
+      let districtArray = helpers.arrayOfDistrict(stateAbbr);
+      districtArray.forEach((districtnum) => {
+      client.membersCurrentByStateOrDistrict({
+        chamber: 'house',
+        state: stateAbbr,
+        district: districtnum
+      }).then((representativeInfo) => {
+      representativesInfo.push(representativeInfo.results[0]);
   })
-  }).catch((e) => {
+    })
+  }).then(() => {res.render('states/single', {senators: senatorsInfo, representatives: representativesInfo, state: stateName});})
+    .catch((e) => {
   	console.log(e);
   	res.redirect('/');
-  })
+  })*/
 
+  Promise.all([
+    client.membersCurrentByStateOrDistrict({
+     chamber: 'senate',
+     state: stateAbbr
+    }).then((senatorInfo) => {
+        senatorsInfo = senatorInfo.results;
+    }),
+      
+    districtArray.forEach((districtnum) => {
+    client.membersCurrentByStateOrDistrict({
+      chamber: 'house',
+      state: stateAbbr,
+      district: districtnum
+    }).then((representativeInfo) => {
+      representativesInfo.push(representativeInfo.results[0]);
+    })
+    })
+  ]).then(() => {
+      res.render('states/single', {senators: senatorsInfo, representatives: representativesInfo, state: stateName});
+    }).catch((e) => {
+    console.log(e);
+    res.redirect('/');
+  })
 
 });
 
