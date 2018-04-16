@@ -13,6 +13,6 @@
   padding-bottom: 15px;
 }
 
-div {
+#senators > div, #representatives > div {
 	margin-top: 20px;
 }
