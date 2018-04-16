@@ -3,6 +3,6 @@ const router = express.Router();
 
 router.use('/', require('./home'));
 router.use('/states', require('./states'));
-router.use('/', require('./trending'));
+router.use('/trending', require('./trending'));
 
 module.exports = router;

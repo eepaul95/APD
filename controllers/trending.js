@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/trending', (req, res) => {
+router.get('/', (req, res) => {
   res.render('trending');
 });
 
