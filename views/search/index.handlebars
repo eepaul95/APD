@@ -1,0 +1,28 @@
+<div>
+    <form action="/search" method="get" class="form-inline justify-content-center form-row">
+      <input name="q" type="text" class="form-control mb-2 mr-sm-2 col-2" placeholder="Search">
+      <input type="submit" class="btn btn-primary mb-2" value="Search">
+    </form>
+    <hr>
+	<div class="row">
+    <p>Search results: {{query}}</p>
+  </div>
+  <div>
+    {{#if isNotState}}
+      <h1>The given query "{{query}}" is not a state.  Please search for a state.</h1>
+    {{else}}
+      <h1>State detected: {{stateAbbr}}.  Redirecting...</h1>
+    {{/if}}
+      
+      <script>
+      (function(){
+      
+      var a = "{{stateAbbr}}";
+      if(a !== "") {
+          window.location.replace("/states/{{state}}");
+      }
+      
+      }())
+      </script>
+	</div>
+</div>
