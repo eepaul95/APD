@@ -7,6 +7,9 @@ const client = new Congress( apiKey );
 const router = express.Router();
 
 
+
+
+
 router.get('/:statename', (req, res) => {
   const stateName = helpers.checkStateWithSpace(req.params.statename);
   const stateAbbr = madison.getStateAbbrevSync(stateName);
@@ -64,7 +67,7 @@ router.get('/:statename', (req, res) => {
   	res.redirect('/');
   })*/
 
-  Promise.all([
+  /*Promise.all([
     client.membersCurrentByStateOrDistrict({
      chamber: 'senate',
      state: stateAbbr
@@ -83,6 +86,42 @@ router.get('/:statename', (req, res) => {
     })
   ]).then(() => {
       res.render('states/single', {senators: senatorsInfo, representatives: representativesInfo, state: stateName});
+    }).catch((e) => {
+    console.log(e);
+    res.redirect('/');
+  })*/
+
+ const reps = districtArray.map( async districtnum => {
+       
+        const getRepresentatives = await client.membersCurrentByStateOrDistrict({
+                                      chamber: 'house',
+                                      state: stateAbbr,
+                                      district: districtnum
+                                    })
+
+        return {
+            results: getRepresentatives.results[0]
+        }
+      })
+
+  const resultRepresentatives = Promise.all(reps);
+
+
+  Promise.all([
+    client.membersCurrentByStateOrDistrict({
+     chamber: 'senate',
+     state: stateAbbr
+    }),
+    
+    resultRepresentatives
+
+  ]).then(([senatorInfo, resultRepresentatives]) => {
+
+       senatorsInfo = senatorInfo.results;
+       resultRepresentatives.forEach((resultRepresentative) => {
+          if(resultRepresentative.results !== undefined) representativesInfo.push(resultRepresentative.results);
+       })
+       res.render('states/single', {senators: senatorsInfo, representatives: representativesInfo, state: stateName});
     }).catch((e) => {
     console.log(e);
     res.redirect('/');
