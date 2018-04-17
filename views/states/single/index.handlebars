@@ -1,6 +1,18 @@
 <link rel="stylesheet" href="/css/states.css" />
+<style>
+#info {
+	width: 40%;
+	float: right;
+} 
 
-<div>
+#left {
+	width: 60%;
+	float: left;
+} 
+</style>
+
+
+<div id="left">
 	<ul class="nav nav-tabs">
 		<li class="active">
 			<a data-toggle="tab" href="#senators">Senators</a>
@@ -36,10 +48,24 @@
 					<p> role: {{this.role}}</p>
 					<p> gender: {{this.gender}} </p>
 					<p> political party: {{this.party}}</p>
+
+					
 				</div>
 				{{/each}}
 			</div>
 		</div>
 	</div>
-
 </div>
+
+<div id="info"></div>
+
+
+<script>
+	$('#info').load('https://www.google.com/search?q=obama #rhscol');
+</script>
+
+
+
+
+
+</script>
