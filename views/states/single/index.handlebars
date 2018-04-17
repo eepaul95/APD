@@ -17,7 +17,10 @@
 			<div class="row">
 				{{#each senators}}
 				<div class="col-md-3 justify-content-left">
-					<h3>{{this.name}}</h3>
+				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
+				</div>
+				<div class="col-md-3 justify-content-left">
+					<h3>{{this.name}}</h3> 
 					<p> role: {{this.role}}</p>
 					<p> gender: {{this.gender}} </p>
 					<p> political party: {{this.party}}</p>
@@ -26,18 +29,23 @@
 			</div>
 		</div>
 
-		<div id="representatives" class="tab-pane fade">
-			<h2> First District Representative of {{state}} </h2>
-			<hr class="small" />
-			<div class="row justify-content-left">
-				{{#each representatives}}
-				<div class="col-md-3 justify-content-left">
-					<h3>{{this.name}}</h3>
-					<p> role: {{this.role}}</p>
-					<p> gender: {{this.gender}} </p>
-					<p> political party: {{this.party}}</p>
-				</div>
-				{{/each}}
+  	<div id="representatives" class="tab-pane fade">
+			<h2> The Representatives of {{state}} </h2>
+			<hr class= "small"/>
+			<div class = "row justify-content-left">
+			{{#each representatives}}
+			<div class="col-md-3 justify-content-left">
+				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
+			</div>
+			<div class="col-md-3 justify-content-left">
+				<h3>{{this.name}}</h3>
+				<p> role: {{this.role}}</p>
+				<p> gender: {{this.gender}} </p>
+				<p> political party: {{this.party}}</p>
+				<p> district: {{this.district}} </p>
+			</div>
+			{{/each}}
+
 			</div>
 		</div>
 	</div>
