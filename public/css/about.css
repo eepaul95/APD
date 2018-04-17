@@ -8,6 +8,7 @@
 
 #Teammates h3, h4 {
     text-align: center;
+    padding: 25px;
 }
 
 #Teammates a {
@@ -35,4 +36,8 @@
     border-width: medium;
     padding: 25px;
     margin: 25px;
+}
+
+.card-img-top {
+    max-height:220px
 }
