@@ -35,6 +35,7 @@
     "madison": "^1.0.2",
     "nodemon": "^1.12.1",
     "popper.js": "^1.12.9",
-    "propublica-congress-node": "^0.1.2"
+    "propublica-congress-node": "^0.1.2",
+    "zipcode": "^0.1.1"
   }
 }
