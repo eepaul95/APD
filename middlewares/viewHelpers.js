@@ -14,13 +14,13 @@ helpers.checkStateWithSpace = (name) => {
 		westvirginia: "West Virginia",
 		districtofcolumbia: "District of Columbia"
 	  };
-		
-	 
+
+
 	  if(name in State) {
-		return State[name]; 
+		return State[name];
 	 }
 	  else return name.charAt(0).toUpperCase() + name.slice(1);
-  
+
 };
 
 helpers.arrayOfDistrict = (stateAbbr) => {
