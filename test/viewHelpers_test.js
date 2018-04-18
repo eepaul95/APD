@@ -8,23 +8,16 @@ These tests are based on the following tutorials:
 =============================================================================================================
 */
 
-
-var assert = require('chai').assert;
-var expect = require('chai').expect;
-var should = require('chai').should();
-var sinon = require('sinon');
+const assert = require('chai').assert;
+const expect = require('chai').expect;
+const should = require('chai').should();
+const sinon = require('sinon');
 //var http_mocks = require('node-mocks-http');
 
 
 var request = require('request');
 var viewHelpers = require('../middlewares/viewHelpers');
 
-/*
-//helper function to create mock HTTP response
-function buildResponse(){
-  return http_mocks.createResponse({eventEmitter: require('events').EventEmitter});
-}
-*/
 
 describe('middleware tests', function(){
   it('Test: state name with space', function(done){
@@ -36,4 +29,17 @@ describe('middleware tests', function(){
     assert.equal(viewHelpers.checkStateWithSpace('nevada'), 'Nevada');
     done();
   });
+
+  it('Test: Abbreviation in arrayOfDistrict', function(done){
+    expect(viewHelpers.arrayOfDistrict('NY')).to.include(27);
+    done();
+  });
+
+  it('Test: Abbreviation is not in arrayOfDistrict', function(done){
+    let spy = sinon.spy(console, 'log');
+    viewHelpers.arrayOfDistrict('XX');
+    assert(spy.calledWith('The given input is not a state abbreviation'));
+    done();
+  });
+  
 });
