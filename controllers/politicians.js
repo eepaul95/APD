@@ -9,8 +9,9 @@ router.get('/:id', (req, res) => {
   client.memberBioAndRoles({
   	memberId: req.params.id
   }).then((politician) => {
-  	res.json(politician);
-  	//res.render('politician/single');
+  	//res.json(politician);
+  	let congressp =  politician.results[0];
+  	res.render('politicians/single', {politicians: congressp});
   }).catch((err) => {
   		console.log(err);
   		res.render('/');
