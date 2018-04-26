@@ -1,8 +1,3 @@
-    <form action="/search" method="get" class="row form-inline justify-content-center form-row">
-      <input name="q" type="text" class="form-control mr-sm-2 mb-xs-2 col-sm-9 col-md-7 col-lg-5" placeholder="State or Zip Code" value="{{query}}">
-      <input type="submit" class="btn btn-primary col-sm-2" value="Search">
-    </form>
-    <hr>
 	<div class="row">
     <p>Search results: {{query}}</p>
   </div>
@@ -12,15 +7,15 @@
     {{else}}
       <h1>State detected: {{state}}.  Redirecting...</h1>
     {{/if}}
-      
+
       <script>
       (function(){
-      
+
       var a = "{{stateAbbr}}";
       if(a !== "") {
           window.location.replace("/states/{{state}}");
       }
-      
+
       }())
       </script>
 	</div>
