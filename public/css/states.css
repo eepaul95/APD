@@ -1,6 +1,6 @@
 .nav-tabs > li > a {
-  margin-left:25px;
-  margin-right:27px;
+  margin-left: 25px;
+  margin-right: 27px;
 }
 
 #senators > h2 {
@@ -13,10 +13,19 @@
   padding-bottom: 15px;
 }
 
-#senators div  {
-	margin-top: 20px;
+#senators div {
+  margin-top: 20px;
 }
 
 #representatives div {
-	margin-top: 20px;
+  margin-top: 20px;
+}
+
+.twitter-follow-button {
+  margin-top: 0px;
+  margin-bottom: -20px;
+}
+
+.fb-like {
+  padding-bottom: 8px;
 }
