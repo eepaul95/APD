@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/states.css" />
+
+<div>
+  	<div id="politician" >
+			<h2> {{politician.first_name}} {{politician.last_name}} </h2>
+			<hr class= "small"/>
+			<div class = "row justify-content-left">
+			<div class="col-md-3 justify-content-left">
+				<img src ="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
+			</div>
+			<div class="col-md-3 justify-content-left">
+				<p> role: {{role.title}}</p>
+				<p> gender: {{politician.gender}} </p>
+				<p> political party: {{role.party}}</p>
+				<p> district: {{role.district}} </p>
+			</div>
+			</div>
+		</div>
+	</div>
+
+</div>

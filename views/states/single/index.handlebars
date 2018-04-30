@@ -1,41 +1,51 @@
-<link rel="stylesheet" href="/css/states.css"/>
+<link rel="stylesheet" href="/css/states.css" />
 
-<div >
-	<ul class="nav nav-tabs">
-  	<li class="active"><a data-toggle="tab" href="#senators">Senators</a></li>
-  	<li><a data-toggle="tab" href="#representatives">Representatives</a></li>
+  <h1>{{state}}</h1>
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#senators" role="tab" aria-controls="senators" aria-selected="true">Senators</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#representatives" role="tab" aria-controls="representatives" aria-selected="false">Representatives</a>
+		</li>
 	</ul>
 
 	<div class="tab-content">
-  	<div id="senators" class="tab-pane fade in active">
+		<div id="senators" class="tab-pane fade show active" role="tabpanel" aria-labelledby="senators">
 			<h2> The Senators of {{state}} </h2>
-			<hr class= "small"/>
-			<div class = "row">
-			{{#each senators}}
-			<div class="col-md-3 justify-content-left">
-				<h3>{{this.name}}</h3>
-				<p> role: {{this.role}}</p>
-				<p> gender: {{this.gender}} </p>
-				<p> political party: {{this.party}}</p>
+			<hr class="small" />
+			<div class="row">
+				{{#each senators}}
+				<div class="col-md-3 justify-content-left">
+				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
+				</div>
+				<div class="col-md-3 justify-content-left">
+					<a href="/politicians/{{this.id}}"><h3>{{this.name}}</h3></a> 
+					<p> role: {{this.role}}</p>
+					<p> gender: {{this.gender}} </p>
+					<p> political party: {{this.party}}</p>
+				</div>
+				{{/each}}
 			</div>
-			{{/each}}
-			</div>
-  	</div>
+		</div>
 
-  	<div id="representatives" class="tab-pane fade">
-			<h2> First District Representative of {{state}} </h2>
+  	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
+			<h2> The Representatives of {{state}} </h2>
 			<hr class= "small"/>
 			<div class = "row justify-content-left">
 			{{#each representatives}}
 			<div class="col-md-3 justify-content-left">
-				<h3>{{this.name}}</h3>
+				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
+			</div>
+			<div class="col-md-3 justify-content-left">
+				<a href="/politicians/{{this.id}}"> <h3>{{this.name}}</h3> </a>
 				<p> role: {{this.role}}</p>
 				<p> gender: {{this.gender}} </p>
 				<p> political party: {{this.party}}</p>
+				<p> district: {{this.district}} </p>
 			</div>
 			{{/each}}
-			</div>
-  	</div>
-</div>
 
-</div>
+			</div>
+		</div>
+	</div>

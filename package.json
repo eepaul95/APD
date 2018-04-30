@@ -5,12 +5,18 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon -L app.js",
-    "test": "jest"
+    "test": "nyc mocha"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^21.2.1"
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "jest": "^21.2.1",
+    "mocha": "^5.1.0",
+    "node-mocks-http": "^1.5.8",
+    "nyc": "^11.6.0",
+    "sinon": "^4.5.0"
   },
   "repository": {
     "type": "git",
@@ -29,6 +35,7 @@
     "madison": "^1.0.2",
     "nodemon": "^1.12.1",
     "popper.js": "^1.12.9",
-    "propublica-congress-node": "^0.1.2"
+    "propublica-congress-node": "^0.1.2",
+    "zipcode": "^0.1.1"
   }
 }

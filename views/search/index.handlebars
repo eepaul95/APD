@@ -1,0 +1,21 @@
+	<div class="row">
+    <p>Search results: {{query}}</p>
+  </div>
+  <div>
+    {{#if isNotState}}
+      <h1>The given query "{{query}}" is not a state.  Please search for a state.</h1>
+    {{else}}
+      <h1>State detected: {{state}}.  Redirecting...</h1>
+    {{/if}}
+
+      <script>
+      (function(){
+
+      var a = "{{stateAbbr}}";
+      if(a !== "") {
+          window.location.replace("/states/{{state}}");
+      }
+
+      }())
+      </script>
+	</div>

@@ -12,3 +12,11 @@
   padding-top: 20px;
   padding-bottom: 15px;
 }
+
+#senators div  {
+	margin-top: 20px;
+}
+
+#representatives div {
+	margin-top: 20px;
+}

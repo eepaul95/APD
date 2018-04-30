@@ -1,7 +1,21 @@
 const express = require('express');
+const router = express.Router();
 
+const myHome = require('./myHome');
 
-const homeController = {
+router.get('/', myHome);
+
+  index(req, res){
+    res.render('home');
+  }
+};
+
+module.exports = router;
+
+/*
+const express = require('express');
+
+const myHome = {
   registerRouter(){
     const router = express.Router();
     router.get('/', this.index);
@@ -14,6 +28,5 @@ const homeController = {
   }
 };
 
-
-
-module.exports = homeController;
+module.exports = myHome.registerRouter();
+*/
