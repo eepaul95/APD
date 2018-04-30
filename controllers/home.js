@@ -5,11 +5,6 @@ const myHome = require('./myHome');
 
 router.get('/', myHome);
 
-  index(req, res){
-    res.render('home');
-  }
-};
-
 module.exports = router;
 
 /*
