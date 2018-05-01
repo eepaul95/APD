@@ -19,3 +19,12 @@ Developers:
 * **Code Reviewer:** JinWon
 * **Presenter:** Miguel
 * **Continuous Integration:** Elie
+
+# Iteration 3
+
+* **Tracker:** Miguel
+* **Unit Tester:** Shateesh
+* **Customer:** JinWon
+* **Code Reviewer:** Elie
+* **Presenter:** Andrew
+* **Continuous Integration:** Sayam
