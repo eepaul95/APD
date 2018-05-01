@@ -27,4 +27,4 @@ Developers:
 * **Customer:** JinWon
 * **Code Reviewer:** Elie
 * **Presenter:** Andrew
-* **Continuous Integration:** Sayam
+* **Continuous Integration:** Satyam
