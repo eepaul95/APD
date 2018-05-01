@@ -12,7 +12,6 @@
 	<div class="tab-content politican-list">
 		<div id="senators" class="tab-pane fade show active" role="tabpanel" aria-labelledby="senators">
 			<h2> The Senators of {{state}} </h2>
-			<hr>
       <div class="card-columns">
         {{#each senators}}
         <div class="card">
@@ -36,7 +35,6 @@
 
   	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
 			<h2> The Representatives of {{state}} </h2>
-			<hr class= "small"/>
       <div class="card-columns">
         {{#each representatives}}
         <div class="card">
@@ -58,4 +56,10 @@
       </div>
 		</div>
 	</div>
+<hr>
 </main>
+<script>
+$("img").on("error", function () {
+  $(this).unbind("error").attr("src", "/images/congress-noimg.svg");
+});
+</script>
