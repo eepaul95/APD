@@ -22,16 +22,18 @@
             <div class="col">
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
-                <p> role: {{this.role}}</p>
-                <p> gender: {{this.gender}} </p>
-                <p> political party: {{this.party}}</p>
+                <table>
+                <tr> <td><b> Role: </b></td> <td>  {{this.role}}</td> </tr>
+                <tr> <td><b> Gender:</b></td> <td>  {{this.gender}} </td> </tr>
+                <tr> <td><b> Political party: </b></td> <td> {{this.party}}</td> </tr>
+                </table>
               </div>
             </div>
           </div>
         </div>
         {{/each}}
       </div>
-		</div>
+	</div>
 
   	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
 			<h2> The Representatives of {{state}} </h2>
@@ -45,9 +47,12 @@
             <div class="col">
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
-                <p> role: {{this.role}}</p>
-                <p> gender: {{this.gender}} </p>
-                <p> political party: {{this.party}}</p>
+                <table>
+				<tr> <td><b>Role:</b></td> <td>{{this.role}}</td> </tr>
+				<tr> <td><b>Gender:</b></td> <td>{{this.gender}}</td> </tr>
+				<tr> <td><b>Political party:</b></td> <td>{{this.party}}</td> </tr>
+				<tr> <td><b>District:</b></td> <td>{{this.district}}</td> </tr>
+				</table>
               </div>
             </div>
           </div>
