@@ -5,6 +5,12 @@
 }
 
 /* for listing politicans */
+@media (max-width: 575px) {
+  .politican-list .card-img-left {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+  }
+}
 @media (min-width: 576px) {
   .politican-list .card-columns {
     column-count: 1;
