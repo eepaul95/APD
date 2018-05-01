@@ -18,7 +18,7 @@
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse" id="navbarColor01">
+         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item">
                   <a class="nav-link" href="/">Home</a>
@@ -45,8 +45,14 @@
     <!--Popper then Bootstrap-->
     <script src="/popper.js/dist/umd/popper.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
-    
     <script src="/js/search.js"></script>
+    <script>
+$(document).ready(function() {
+	// get current URL path and assign 'active' class
+	var pathname = window.location.pathname;
+	$('#navigation > ul > li > a[href="'+pathname+'"]').parent().addClass('active');
+})
+    </script>
   </body>
 
  </html>
