@@ -1,4 +1,9 @@
-/* for listing politicans */
+/* Map (SVG) controls */
+#clickableMap .datamaps-subunit {
+  transition: fill .15s ease-in-out;
+}
+
+/* Listing politicans */
 @media (max-width: 575px) {
   .politican-list .card-img-left {
     border-top-left-radius: calc(.25rem - 1px);
