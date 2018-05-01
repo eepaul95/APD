@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="/css/states.css" />
-
+<main role="main" class="container">
   <h1>{{state}}</h1>
 	<ul class="nav nav-tabs" role="tablist">
 		<li class="nav-item">
@@ -10,42 +9,57 @@
 		</li>
 	</ul>
 
-	<div class="tab-content">
+	<div class="tab-content politican-list">
 		<div id="senators" class="tab-pane fade show active" role="tabpanel" aria-labelledby="senators">
 			<h2> The Senators of {{state}} </h2>
-			<hr class="small" />
-			<div class="row">
-				{{#each senators}}
-				<div class="col-md-3 justify-content-left">
-				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
-				</div>
-				<div class="col-md-3 justify-content-left">
-					<a href="/politicians/{{this.id}}"><h3>{{this.name}}</h3></a> 
-					<p> role: {{this.role}}</p>
-					<p> gender: {{this.gender}} </p>
-					<p> political party: {{this.party}}</p>
-				</div>
-				{{/each}}
-			</div>
+      <div class="card-columns">
+        {{#each senators}}
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-5 pr-sm-0">
+              <img class="w-100 card-img-left" src ="https://theunitedstates.io/images/congress/450x550/{{this.id}}.jpg" alt="{{this.name}}">
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
+                <p> role: {{this.role}}</p>
+                <p> gender: {{this.gender}} </p>
+                <p> political party: {{this.party}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
 		</div>
 
   	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
 			<h2> The Representatives of {{state}} </h2>
-			<hr class= "small"/>
-			<div class = "row justify-content-left">
-			{{#each representatives}}
-			<div class="col-md-3 justify-content-left">
-				<img src ="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
-			</div>
-			<div class="col-md-3 justify-content-left">
-				<a href="/politicians/{{this.id}}"> <h3>{{this.name}}</h3> </a>
-				<p> role: {{this.role}}</p>
-				<p> gender: {{this.gender}} </p>
-				<p> political party: {{this.party}}</p>
-				<p> district: {{this.district}} </p>
-			</div>
-			{{/each}}
-
-			</div>
+      <div class="card-columns">
+        {{#each representatives}}
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-5 pr-sm-0">
+              <img class="w-100 card-img-left" src ="https://theunitedstates.io/images/congress/450x550/{{this.id}}.jpg" alt="{{this.name}}">
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
+                <p> role: {{this.role}}</p>
+                <p> gender: {{this.gender}} </p>
+                <p> political party: {{this.party}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
 		</div>
 	</div>
+<hr>
+</main>
+<script>
+$("img").on("error", function () {
+  $(this).unbind("error").attr("src", "/images/congress-noimg.svg");
+});
+</script>
