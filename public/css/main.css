@@ -1,5 +1,31 @@
-.body h2 {
-	margin: 30px 30px;
-	color:#428bca;
-	font-weight: bold;
+/* Map (SVG) controls */
+#clickableMap .datamaps-subunit {
+  transition: fill .15s ease-in-out;
+}
+
+/* Listing politicans */
+@media (max-width: 575px) {
+  .politican-list .card-img-left {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+  }
+}
+@media (min-width: 576px) {
+  .politican-list .card-columns {
+    column-count: 1;
+  }
+  .politican-list .card-img-left {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-bottom-left-radius: calc(.25rem - 1px);
+  }
+}
+@media (min-width: 768px) {
+  .politican-list .card-columns {
+    column-count: 1;
+  }
+}
+@media (min-width: 992px) {
+  .politican-list .card-columns {
+    column-count: 2;
+  }
 }
