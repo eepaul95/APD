@@ -13,7 +13,8 @@
     "chai-http": "^4.0.0",
     "jest": "^21.2.1",
     "node-mocks-http": "^1.5.8",
-    "nyc": "^11.6.0"
+    "nyc": "^11.6.0",
+    "supertest": "^3.0.0"
   },
   "repository": {
     "type": "git",
