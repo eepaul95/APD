@@ -1,6 +1,17 @@
 /* Map (SVG) controls */
 #clickableMap .datamaps-subunit {
   transition: fill .15s ease-in-out;
+  stroke-width: 1;
+  stroke-opacity: 1;
+  stroke: #ffffff;
+  fill: #b8b8b8; /* !important to override svg path's inline style */
+  cursor: pointer;
+}
+#clickableMap .datamaps-subunit:hover {
+  fill: #00a6f7;
+}
+#clickableMap .datamaps-subunit:active, #clickableMap .datamaps-subunit.focus {
+  fill: #007bff;
 }
 
 /* Listing politicans */

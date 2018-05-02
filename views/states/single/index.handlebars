@@ -34,18 +34,19 @@
             <div class="col">
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
-                <p> role: {{this.role}}</p>
-                <p> gender: {{this.gender}} </p>
-                <p> political party: {{this.party}}</p>
+                <table>
+                  <tr> <td><b> Role: </b></td> <td align="center">  {{this.role}}</td> </tr>
+                  <tr> <td><b> Gender:</b></td> <td align="center">  {{this.gender}} </td> </tr>
+                  <tr> <td><b> Political party: </b></td> <td align="center"> {{this.party}}</td> </tr>
+                </table>
                 {{#if this.twitter_id}}
-                <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
-                <br> {{#if this.facebook_account}}
-                <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
-                 data-size="small" data-show-faces="false" data-share="false"></div>
-                {{/if}}
-                <br> {{#if this.youtube_id}}
-                <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
+                  <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
+                  <br> {{#if this.facebook_account}}
+                  <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                  {{/if}}
+                  <br> {{#if this.youtube_id}}
+                  <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
                 {{/if}}
               </div>
             </div>
@@ -54,7 +55,8 @@
         {{/each}}
       </div>
 		</div>
-		<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
+
+  	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
 			<h2> The Representatives of {{state}} </h2>
       <div class="card-columns">
         {{#each representatives}}
@@ -66,20 +68,21 @@
             <div class="col">
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
-                <p> role: {{this.role}}</p>
-                <p> gender: {{this.gender}} </p>
-                <p> political party: {{this.party}}</p>
-                <p> district: {{this.district}} </p>
+                <table>
+				          <tr> <td><b>Role:</b></td> <td align="center">{{this.role}}</td> </tr>
+				          <tr> <td><b>Gender:</b></td> <td align="center">{{this.gender}}</td> </tr>
+				          <tr> <td><b>Political party:</b></td> <td align="center">{{this.party}}</td> </tr>
+				          <tr> <td><b>District:</b></td> <td align="center">{{this.district}}</td> </tr>
+				        </table>
                 {{#if this.twitter_id}}
-                <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
-                <br> {{#if this.facebook_account}}
-                <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
-                 data-size="small" data-show-faces="false" data-share="false"></div>
-                {{/if}}
-                <br> {{#if this.youtube_id}}
-                <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
-                {{/if}}
+                  <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
+                  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
+                  <br> {{#if this.facebook_account}}
+                  <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                  {{/if}}
+                  <br> {{#if this.youtube_id}}
+                  <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
+                  {{/if}}
               </div>
             </div>
           </div>
