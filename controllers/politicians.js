@@ -1,7 +1,7 @@
 const express = require('express');
-const Congress = require( 'propublica-congress-node' );
+const Congress = require('propublica-congress-node');
 const apiKey = 'kKAb1hU4oGSoUjqN5P3NJVUhd0PDWV0r4PizmlGe';
-const client = new Congress( apiKey );
+const client = new Congress(apiKey);
 
 const router = express.Router();
 
@@ -15,7 +15,10 @@ router.get('/:id', (req, res) => {
       first_name: politician.results[0].first_name,
       last_name: politician.results[0].last_name,
       gender: politician.results[0].gender,
-      url: politician.results[0].url
+      url: politician.results[0].url,
+      twitter: politician.results[0].twitter_account,
+      facebook: politician.results[0].facebook_account,
+      youtube: politician.results[0].youtube_account
     };
     //res.json(congressp);
     let congressrole = {
