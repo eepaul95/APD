@@ -1,88 +1,97 @@
-<link rel="stylesheet" href="/css/states.css" />
-
 <!-- Facebook Button Widget Script -->
 <div id="fb-root"></div>
 <script>(function (d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
 
 <!-- YouTube Button Widget Script -->
 <script src="https://apis.google.com/js/platform.js"></script>
+<main role="main" class="container">
+  <h1>{{state}}</h1>
+	<ul class="nav nav-tabs" role="tablist">
+		<li class="nav-item">
+			<a class="nav-link active" data-toggle="tab" href="#senators" role="tab" aria-controls="senators" aria-selected="true">Senators</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" data-toggle="tab" href="#representatives" role="tab" aria-controls="representatives" aria-selected="false">Representatives</a>
+		</li>
+	</ul>
 
-<h1>{{state}}</h1>
-<ul class="nav nav-tabs" role="tablist">
-	<li class="nav-item">
-		<a class="nav-link active" data-toggle="tab" href="#senators" role="tab" aria-controls="senators" aria-selected="true">Senators</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#representatives" role="tab" aria-controls="representatives" aria-selected="false">Representatives</a>
-	</li>
-</ul>
-
-<div class="tab-content">
-	<div id="senators" class="tab-pane fade show active" role="tabpanel" aria-labelledby="senators">
-		<h2> The Senators of {{state}} </h2>
-		<hr class="small" />
-		<div class="row">
-			{{#each senators}}
-			<div class="col-md-3 justify-content-left">
-				<img src="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
-			</div>
-			<div class="col-md-3 justify-content-left">
-				<a href="/politicians/{{this.id}}">
-					<h3>{{this.name}}</h3>
-				</a>
-				<p> role: {{this.role}}</p>
-				<p> gender: {{this.gender}} </p>
-				<p> political party: {{this.party}}</p>
-				{{#if this.twitter_id}}
-				<a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
-				<br> {{#if this.facebook_account}}
-				<div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
-				 data-size="small" data-show-faces="false" data-share="false"></div>
-				{{/if}}
-				<br> {{#if this.youtube_id}}
-				<div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
-				{{/if}}
-			</div>
-			{{/each}}
+	<div class="tab-content politican-list">
+		<div id="senators" class="tab-pane fade show active" role="tabpanel" aria-labelledby="senators">
+			<h2> The Senators of {{state}} </h2>
+      <div class="card-columns">
+        {{#each senators}}
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-5 pr-sm-0">
+              <img class="w-100 card-img-left" src ="https://theunitedstates.io/images/congress/450x550/{{this.id}}.jpg" alt="{{this.name}}">
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
+                <p> role: {{this.role}}</p>
+                <p> gender: {{this.gender}} </p>
+                <p> political party: {{this.party}}</p>
+                {{#if this.twitter_id}}
+                <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
+                <br> {{#if this.facebook_account}}
+                <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
+                 data-size="small" data-show-faces="false" data-share="false"></div>
+                {{/if}}
+                <br> {{#if this.youtube_id}}
+                <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+		</div>
+		<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
+			<h2> The Representatives of {{state}} </h2>
+      <div class="card-columns">
+        {{#each representatives}}
+        <div class="card">
+          <div class="row">
+            <div class="col-sm-5 pr-sm-0">
+              <img class="w-100 card-img-left" src ="https://theunitedstates.io/images/congress/450x550/{{this.id}}.jpg" alt="{{this.name}}">
+            </div>
+            <div class="col">
+              <div class="card-body">
+                <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
+                <p> role: {{this.role}}</p>
+                <p> gender: {{this.gender}} </p>
+                <p> political party: {{this.party}}</p>
+                <p> district: {{this.district}} </p>
+                {{#if this.twitter_id}}
+                <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
+                <br> {{#if this.facebook_account}}
+                <div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
+                 data-size="small" data-show-faces="false" data-share="false"></div>
+                {{/if}}
+                <br> {{#if this.youtube_id}}
+                <div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
 		</div>
 	</div>
-
-	<div id="representatives" class="tab-pane fade" role="tabpanel" aria-labelledby="representative">
-		<h2> The Representatives of {{state}} </h2>
-		<hr class="small" />
-		<div class="row justify-content-left">
-			{{#each representatives}}
-			<div class="col-md-3 justify-content-left">
-				<img src="https://theunitedstates.io/images/congress/225x275/{{this.id}}.jpg" alt="{{this.name}}">
-			</div>
-			<div class="col-md-3 justify-content-left">
-				<a href="/politicians/{{this.id}}">
-					<h3>{{this.name}}</h3>
-				</a>
-				<p> role: {{this.role}}</p>
-				<p> gender: {{this.gender}} </p>
-				<p> political party: {{this.party}}</p>
-				<p> district: {{this.district}} </p>
-				{{#if this.twitter_id}}
-				<a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
-				<br> {{#if this.facebook_account}}
-				<div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
-				 data-size="small" data-show-faces="false" data-share="false"></div>
-				{{/if}}
-				<br> {{#if this.youtube_id}}
-				<div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
-				{{/if}}
-			</div>
-			{{/each}}
-
-		</div>
-	</div>
-</div>
+<hr>
+</main>
+<script>
+$("img").on("error", function () {
+  $(this).unbind("error").attr("src", "/images/congress-noimg.svg");
+});
+</script>
