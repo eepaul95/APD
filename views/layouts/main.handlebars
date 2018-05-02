@@ -3,22 +3,22 @@
   <head>
     <meta charset= "utf-8">
 	  <title>American Political Database </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-    
-
+    <!-- for brand icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/brands.css" integrity="sha384-KtmfosZaF4BaDBojD9RXBSrq5pNEO79xGiggBxf8tsX+w2dBRpVW5o0BPto2Rb2F" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/fontawesome.css" integrity="sha384-8WwquHbb2jqa7gKWSoAwbJBV2Q+/rQRss9UXL5wlvXOZfSodONmVnifo/+5xJIWX" crossorigin="anonymous">
   </head>
-
   <body>
     <!--Navbar-->
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-primary">
          <a class="navbar-brand" href="/">APD</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-navigation" aria-controls="header-navigation" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse" id="navbarColor01">
+         <div class="collapse navbar-collapse" id="header-navigation">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item">
                   <a class="nav-link" href="/">Home</a>
@@ -37,15 +37,22 @@
          </div>
       </nav>
     </header>
-    <main role="main" class="container-fluid">
-      {{{body}}}
-  	</main>
-    <!--jQuery-->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <!--Bootstrap-->
-    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!--jQuery first-->
+    <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
     
+    {{{body}}}
+    
+    <!--Popper then Bootstrap-->
+    <script src="/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/js/search.js"></script>
+    <script>
+$(document).ready(function() {
+	// get current URL path and assign 'active' class
+	var pathname = window.location.pathname;
+	$('#header-navigation > ul > li > a[href="'+pathname+'"]').parent().addClass('active');
+})
+    </script>
   </body>
 
  </html>

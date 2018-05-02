@@ -1,5 +1,51 @@
-.body h2 {
-	margin: 30px 30px;
-	color:#428bca;
-	font-weight: bold;
+/* Map (SVG) controls */
+#clickableMap .datamaps-subunit {
+  transition: fill .15s ease-in-out;
+  stroke-width: 1;
+  stroke-opacity: 1;
+  stroke: #ffffff;
+  fill: #b8b8b8; /* !important to override svg path's inline style */
+  cursor: pointer;
+}
+#clickableMap .datamaps-subunit:hover {
+  fill: #00a6f7;
+}
+#clickableMap .datamaps-subunit:active, #clickableMap .datamaps-subunit.focus {
+  fill: #007bff;
+}
+
+/* Listing politicans */
+@media (max-width: 575px) {
+  .politican-list .card-img-left {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+  }
+}
+@media (min-width: 576px) {
+  .politican-list .card-columns {
+    column-count: 1;
+  }
+  .politican-list .card-img-left {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-bottom-left-radius: calc(.25rem - 1px);
+  }
+}
+@media (min-width: 768px) {
+  .politican-list .card-columns {
+    column-count: 1;
+  }
+}
+@media (min-width: 992px) {
+  .politican-list .card-columns {
+    column-count: 2;
+  }
+}
+
+#senators .twitter-follow-button, #representatives .twitter-follow-button {
+  margin-top: 0px;
+ /* margin-bottom: -20px; */
+}
+
+#senators .fb-like, #representatives .fb-like {
+  padding-bottom: 8px;
 }

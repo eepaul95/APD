@@ -1,6 +1,9 @@
-	<div id="clickableMap" class="row d-flex justify-content-center">
-		<iframe src="https://createaclickablemap.com/map.php?&id=69427&maplocation=false&online=true" width="900" height="525" style="border: none;"></iframe>
-		<script>
-			if (window.addEventListener){ window.addEventListener("message", function(event) { if(event.data.length >= 22) { if( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); } else if (window.attachEvent){ window.attachEvent("message", function(event) { if( event.data.length >= 22) { if ( event.data.substr(0, 22) == "__MM-LOCATION.REDIRECT") location = event.data.substr(22); } }, false); }
-		</script>
-	</div>
+<main role="main" id="mapContainer" class="container">
+  <h1 class="text-center">American Political Database</h1>
+	<div id="clickableMap" class="row"></div>
+  <p id="stateName" class="text-center"><i>Select a state</i></p>
+</main>
+<script src="/d3/d3.min.js"></script>
+<script src="/topojson/build/topojson.min.js"></script>
+<script src="/datamaps/dist/datamaps.usa.min.js"></script>
+<script src="/js/clickablemap.js"></script>
