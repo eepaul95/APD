@@ -43,11 +43,11 @@
 				<a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
 				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
 				<br> {{#if this.facebook_account}}
-				<div class="fb-like" data-href="https://www.facebook.com/{{facebook_account}}" data-layout="button" data-action="like" data-size="small"
-				 data-show-faces="false" data-share="false"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
+				 data-size="small" data-show-faces="false" data-share="false"></div>
 				{{/if}}
-				<br> {{#if youtube_id}}
-				<div class="g-ytsubscribe" data-channel="{{youtube_id}}" data-layout="default" data-count="hidden"></div>
+				<br> {{#if this.youtube_id}}
+				<div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
 				{{/if}}
 			</div>
 			{{/each}}
@@ -74,11 +74,11 @@
 				<a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
 				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> {{/if}}
 				<br> {{#if this.facebook_account}}
-				<div class="fb-like" data-href="https://www.facebook.com/{{facebook_account}}" data-layout="button" data-action="like" data-size="small"
-				 data-show-faces="false" data-share="false"></div>
+				<div class="fb-like" data-href="https://www.facebook.com/{{this.facebook_account}}" data-layout="button" data-action="like"
+				 data-size="small" data-show-faces="false" data-share="false"></div>
 				{{/if}}
 				<br> {{#if this.youtube_id}}
-				<div class="g-ytsubscribe" data-channel="{{youtube_id}}" data-layout="default" data-count="hidden"></div>
+				<div class="g-ytsubscribe" data-channel="{{this.youtube_id}}" data-layout="default" data-count="hidden"></div>
 				{{/if}}
 			</div>
 			{{/each}}
