@@ -35,9 +35,9 @@
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
                 <table>
-                  <tr> <td><b> Role: </b></td> <td align="center">  {{this.role}} <a href="/tutorial#senator-card"><img src="images/misc/small-question-mark-icon-7.png" alt="question mark" width="42" height="42"></a></td> </tr>
+                  <tr> <td><b> Role: </b></td> <td align="center">  {{this.role}} <a href="/tutorial#senator-card"><img src="images/misc/small-question-mark-icon-7.png" alt="question mark" width="22" height="22"></a></td> </tr>
                   <tr> <td><b> Gender:</b></td> <td align="center">  {{this.gender}} </td> </tr>
-                  <tr> <td><b> Political party: </b></td> <td align="center"> {{this.party}}</td> </tr>
+                  <tr> <td><b> Political party: </b></td> <td align="center"> {{this.party}} <a href="/tutorial#political-party-card"><img src="images/misc/small-question-mark-icon-7.png" alt="question mark" width="22" height="22"></a></td> </tr>
                 </table>
                 {{#if this.twitter_id}}
                   <a href="https://twitter.com/{{this.twitter_id}}" class="twitter-follow-button" data-show-count="false">Follow</a>
@@ -68,7 +68,7 @@
             <div class="col">
               <div class="card-body">
                 <h3 class="card-title"><a href="/politicians/{{this.id}}">{{this.name}}</a></h3>
-                <p> role: {{this.role}} <a href="/tutorial#representative-card"><img src="images/misc/small-question-mark-icon-7.png" alt="question mark" width="42" height="42"></a></p>
+                <p> role: {{this.role}} <a href="/tutorial#representative-card"><img src="images/misc/small-question-mark-icon-7.png" alt="question mark" width="22" height="22"></a></p>
                 <p> gender: {{this.gender}} </p>
                 <p> political party: {{this.party}}</p>
                 <table>
