@@ -15,10 +15,10 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-primary">
          <a class="navbar-brand" href="/">APD</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header-navigation" aria-controls="header-navigation" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse" id="navigation">
+         <div class="collapse navbar-collapse" id="header-navigation">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item">
                   <a class="nav-link" href="/">Home</a>
@@ -53,7 +53,7 @@
 $(document).ready(function() {
 	// get current URL path and assign 'active' class
 	var pathname = window.location.pathname;
-	$('#navigation > ul > li > a[href="'+pathname+'"]').parent().addClass('active');
+	$('#header-navigation > ul > li > a[href="'+pathname+'"]').parent().addClass('active');
 })
     </script>
   </body>
