@@ -5,7 +5,6 @@ const myHome = require('./myHome');
 
 router.get('/', myHome);
 
-
 module.exports = router;
 
 /*
