@@ -28,3 +28,11 @@ Developers:
 * **Code Reviewer:** Elie
 * **Presenter:** Andrew
 * **Continuous Integration:** Satyam
+
+# Iteration 4
+
+* **Tracker:** JinWon, Satyam
+* **Tester:** Miguel
+* **Code Reviewer:** Andrew
+* **Presenter:** Shateesh
+* **Coach:** Elie
