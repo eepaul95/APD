@@ -12,8 +12,8 @@ function myHome(req, res){
   for (i = 0; i < articlesLength; i++){
     articles.push(response.articles[i]);
   }
-  console.log(articles[1].title);
-  res.render('home', {newsArticles: articles});
+  //console.log(articles[1].title);
+  res.render('home', {newsArticles: response.articles});
 }).catch((err) => {
     console.log(err);
     res.render('/');
