@@ -2,6 +2,26 @@
   <h1 class="text-center">American Political Database</h1>
 	<div id="clickableMap" class="row"></div>
   <p id="stateName" class="text-center"><i>Select a state</i></p>
+
+  <br>
+
+  <div id="newArticles">
+    <div class="card-columns">
+    {{#each newsArticles}}
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{this.urlToImage}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{this.title}}</h5>
+          <p class="card-text">{{this.description}}</p>
+          <br>
+          <p>Author - {{this.author}}</p>
+          <a href="{{this.url}}" class="btn btn-primary">Go to Article</a>
+        </div>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+
 </main>
 <script src="/d3/d3.min.js"></script>
 <script src="/topojson/build/topojson.min.js"></script>
