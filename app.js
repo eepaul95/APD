@@ -32,7 +32,8 @@ const controllers = require('./controllers');
 app.use(controllers);
 
 //Listen to the port and run the server
-app.listen(PORT, () => console.log(`Server is up and running on port: ${PORT}`));
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => console.log(`Server is up and running on port: ${PORT}`));
+}
 
-
-
+module.exports = app;
