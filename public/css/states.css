@@ -29,3 +29,37 @@
 .fb-like {
   padding-bottom: 8px;
 }
+
+.btn-twitter {
+  color: black;
+  background-color: #4F9EF1 !important;
+  border-color: #17a2b8;
+}
+
+.btn-twitter:hover {
+  color: #fff;
+  background-color: #4F9EF1;
+  border-color: #117a8b;
+}
+
+.btn-twitter:focus, .btn-twitter.focus {
+  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+}
+
+.btn-twitter.disabled, .btn-twitter:disabled {
+  color: #fff;
+  background-color: #4F9EF1;
+  border-color: #17a2b8;
+}
+
+.btn-twitter:not(:disabled):not(.disabled):active, .btn-twitter:not(:disabled):not(.disabled).active,
+.show > .btn-twitter.dropdown-toggle {
+  color: #fff;
+  background-color: #4F9EF1;
+  border-color: #10707f;
+}
+
+.btn-twitter:not(:disabled):not(.disabled):active:focus, .btn-twitter:not(:disabled):not(.disabled).active:focus,
+.show > .btn-twitter.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(23, 162, 184, 0.5);
+}
