@@ -1,21 +1,11 @@
-const about = require('../controllers/about');
-const request = require('request');
+const request = require('supertest');
+const app = require('../app');
 
-
-describe('About test', () => {
-  /*
-  test('Test: about render', ()=> {
-    var res, req, spy;
-    req = res = {};
-    spy = res.render = jest.fn();
-    about.router.get(req,res);
-    expect(spy).toBeCalled();
-  });
-  */
-  test('Test: Error != 404', () =>{
-    request('http://localhost:8000/about' , function(error, response, body) {
-    expect(error).not.toBe(404);
+describe('Test the about path', () => {
+    test('It should response the GET method', (done) => {
+        request(app).get('/about').then((response) => {
+            expect(response.statusCode).toBe(200);
+            done();
+        });
     });
-  });
-
 });
