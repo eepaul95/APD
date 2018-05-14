@@ -3,12 +3,13 @@ const router = express.Router();
 const helpers = require('../middlewares/viewHelpers');
 const madison = require('madison');
 const apiHelpers = require('../middlewares/apiHelpers');
+const cache = require('../middlewares/cache');
 
 
 
 
 
-router.get('/:statename', (req, res) => {
+router.get('/:statename', cache(7), (req, res) => {
   const stateName = helpers.checkStateWithSpace(req.params.statename);
   const stateAbbr = madison.getStateAbbrevSync(stateName);
   let representativesInfo = [];
@@ -27,8 +28,8 @@ router.get('/:statename', (req, res) => {
     resultRepresentatives
 
   ]).then(([senatorsInfo, resultRepresentatives]) => {
-      representativesInfo = resultRepresentatives.map((resultRepresentative) => {
-        if(resultRepresentative !== undefined) return resultRepresentative;
+     resultRepresentatives.forEach((resultRepresentative) => {
+        if(resultRepresentative !== undefined) representativesInfo.push(resultRepresentative);
       });
        res.render('states/single', {senators: senatorsInfo, representatives: representativesInfo, state: stateName});
     }).catch((e) => {

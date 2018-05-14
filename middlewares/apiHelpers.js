@@ -33,12 +33,33 @@ apiHelpers.getCongressMemberById = (id) => {
 	let congressMember = client.memberBioAndRoles({
 		memberId: id
 	}).then(congressMemberResult => {
-		return congressMemberResult.results;
+		return congressMemberResult.results[0];
 	});
 	return congressMember;
 }
 
+apiHelpers.getIntroducedBillsByMemberId = (id) => {
+	let introducedBills = client.billsByMember({
+							memberId: id,
+							billType: 'introduced'
+						}).then(bills => {
+							return bills.results[0].bills;
+						});
 
+	return introducedBills
+}
+
+
+apiHelpers.getUpdatedBillsByMemberId = (id) => {
+	let updatedBills = client.billsByMember({
+							memberId: id,
+							billType: 'updated',
+						}).then(bills => {
+							return bills.results[0].bills;
+						});
+
+	return updatedBills
+}
 
 
 
