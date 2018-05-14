@@ -44,14 +44,17 @@ router.get('/:id', (req, res) => {
       most_recent_vote: politician.results[0].most_recent_vote
     };
 
-    const politician_bills = client.billsByMember({
+    client.billsByMember({
       memberId : req.params.id,
       billType : 'introduced'
-    });
+    }).then((bills_introduced) => {
+      congressrole.recent_bills_introduced = bills_introduced.results[0].bills[0].short_title; })
 
-    politician_bills.then((bills_introduced) => {
-      congressrole.recent_bills_introduced = bills_introduced.results[0].bills[0].short_title;
-
+    client.billsByMember({
+      memberId : req.params.id,
+      billType : 'updated'
+    }).then((bills_updated) => {
+      congressrole.recent_bills_updated = bills_updated.results[0].bills[0].short_title;
       res.render('politicians/single', {politician: congressp, role: congressrole});
     }).catch((err) => {
       console.log(err);
