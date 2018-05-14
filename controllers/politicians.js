@@ -51,11 +51,11 @@ router.get('/:id', (req, res) => {
       }
       console.log(top_ten_articles);
     res.render('politicians/single', {politician: congressp, role: congressrole, newsArticles: top_ten_articles});
-  }).catch((err) => {
-      console.log(err);
-      res.render('/');
+    }).catch((err) => {
+        console.log(err);
+        res.render('/');
+    })
   })
-})
 });
 
 module.exports = router;
