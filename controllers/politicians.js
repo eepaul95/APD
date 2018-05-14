@@ -32,9 +32,11 @@ router.get('/:id', (req, res) => {
       end_date: politician.results[0].roles[0].end_date,
       phone: politician.results[0].roles[0].phone,
       bills_sponsored: politician.results[0].roles[0].bills_sponsored,
-      bills_cosponsored: politician.results[0].roles[0].bills_cosponsored
-
+      bills_cosponsored: politician.results[0].roles[0].bills_cosponsored,
+      most_recent_vote: politician.results[0].most_recent_vote
     }
+
+
     res.render('politicians/single', {politician: congressp, role: congressrole});
   }).catch((err) => {
       console.log(err);
