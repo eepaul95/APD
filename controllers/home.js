@@ -1,27 +1,25 @@
 const express = require('express');
 const router = express.Router();
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('69f83c84a33c475584137f95b7eef274');
 
-const myHome = require('./myHome');
-
-router.get('/', myHome);
+router.get('/', (req, res) => {
+  newsapi.v2.topHeadlines({
+  category: 'politics',
+  language: 'en',
+  country: 'us'
+}).then(response => {
+  let articles = [];
+  let articlesLength = response.articles.length;
+  for (i = 0; i < articlesLength; i++){
+    articles.push(response.articles[i]);
+  }
+  //console.log(articles[1].title);
+  res.render('home', {newsArticles: response.articles});
+}).catch((err) => {
+    console.log(err);
+    res.render('/');
+  })
+});
 
 module.exports = router;
-
-/*
-const express = require('express');
-
-const myHome = {
-  registerRouter(){
-    const router = express.Router();
-    router.get('/', this.index);
-
-    return router;
-  },
-
-  index(req, res){
-    res.render('home');
-  }
-};
-
-module.exports = myHome.registerRouter();
-*/
