@@ -17,7 +17,9 @@ router.get('/:id', cache(7),  (req, res) => {
       twitter: politician.twitter_account,
       facebook: politician.facebook_account,
       youtube: politician.youtube_account
+
     };
+
 
   let congressrole = {
       title: politician.roles[0].title,
