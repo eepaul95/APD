@@ -23,7 +23,7 @@ apiHelpers.getRepresentativeByDistrict = (stateAbbr, districtNum) => {
 		state: stateAbbr,
 		district: districtNum
 	}).then(representativeResult => {
-		return representativeResult.results;
+		return representativeResult.results[0];
 	});
 	return representative;
 }
@@ -37,6 +37,7 @@ apiHelpers.getCongressMemberById = (id) => {
 	});
 	return congressMember;
 }
+
 
 
 
