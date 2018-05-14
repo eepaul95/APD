@@ -1,6 +1,8 @@
 const express = require('express');
 const Congress = require('propublica-congress-node');
 const apiKey = 'kKAb1hU4oGSoUjqN5P3NJVUhd0PDWV0r4PizmlGe';
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('69f83c84a33c475584137f95b7eef274');
 const client = new Congress(apiKey);
 
 const router = express.Router();
@@ -35,11 +37,25 @@ router.get('/:id', (req, res) => {
       bills_cosponsored: politician.results[0].roles[0].bills_cosponsored
 
     }
-    res.render('politicians/single', {politician: congressp, role: congressrole});
+
+    politician_name = politician.results[0].first_name + " " + politician.results[0].last_name
+
+    newsapi.v2.everything({
+      q: politician_name,
+      language: 'en',
+      sortBy: 'relevancy',
+    }).then((politician_articles) => {
+      let top_ten_articles = [];
+      for (i = 0; i < 10; i++){
+        top_ten_articles.push(politician_articles.articles[i]);
+      }
+      console.log(top_ten_articles);
+    res.render('politicians/single', {politician: congressp, role: congressrole, newsArticles: top_ten_articles});
   }).catch((err) => {
       console.log(err);
       res.render('/');
   })
+})
 });
 
 module.exports = router;
