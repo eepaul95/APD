@@ -57,6 +57,25 @@
 	</div>
 </div>
 
+{{#if newsArticles}}
+<div id="newArticles">
+	<div class="card-columns">
+	{{#each newsArticles}}
+		<div class="card">
+			<img class="card-img-top" src="{{this.urlToImage}}" alt="Card image cap">
+			<div class="card-body">
+				<h5 class="card-title">{{this.title}}</h5>
+				<p class="card-text">{{this.description}}</p>
+				<br>
+				<p>Author - {{this.author}}</p>
+				<a href="{{this.url}}" class="btn btn-primary">Go to Article</a>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+</div>
+{{/if}}
+
 <div class="container">
 	<div class="row">
 		<!-- Twitter Feed -->

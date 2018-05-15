@@ -54,26 +54,36 @@ router.get('/:id', (req, res) => {
     politician_bills.then((bills_introduced) => {
       congressrole.recent_bills_introduced = bills_introduced.results[0].bills[0].short_title;
 
-    }
+      politician_name = politician.results[0].first_name + " " + politician.results[0].last_name
 
-    politician_name = politician.results[0].first_name + " " + politician.results[0].last_name
-
-    newsapi.v2.everything({
-      q: politician_name,
-      language: 'en',
-      sortBy: 'relevancy',
-    }).then((politician_articles) => {
-      let top_ten_articles = [];
-      for (i = 0; i < 10; i++){
-        top_ten_articles.push(politician_articles.articles[i]);
-      }
-      console.log(top_ten_articles);
-    res.render('politicians/single', {politician: congressp, role: congressrole, newsArticles: top_ten_articles});
-    }).catch((err) => {
-        console.log(err);
-        res.render('/');
+      newsapi.v2.everything({
+        q: politician_name,
+        language: 'en',
+        sortBy: 'relevancy',
+      }).then((politician_articles) => {
+        let top_ten_articles = [];
+        if(politician_articles.articles.length > 10){
+          for (i = 0; i < 10; i++){
+            top_ten_articles.push(politician_articles.articles[i]);
+          }
+        }
+        else{
+          for (i = 0; i < politician_articles.length; i++){
+            top_ten_articles.push(politician_articles.articles[i]);
+          }
+        }
+        if(top_ten_articles.length > 0){
+          res.render('politicians/single', {politician: congressp, role: congressrole, newsArticles: top_ten_articles});
+        }
+        else{
+          res.render('politicians/single', {politician: congressp, role: congressrole});
+        }
+      }).catch((err) => {
+          console.log(err);
+          res.render('/');
+        })
+      })
     })
-  })
 });
 
 module.exports = router;
