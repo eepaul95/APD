@@ -1,66 +1,43 @@
 const express = require('express');
-const Congress = require('propublica-congress-node');
-const apiKey = 'kKAb1hU4oGSoUjqN5P3NJVUhd0PDWV0r4PizmlGe';
-const client = new Congress(apiKey);
+const apiHelpers = require('../middlewares/apiHelpers');
+const cache = require('../middlewares/cache');
 
 const router = express.Router();
 
+router.get('/:id', cache(7),  (req, res) => {
+  
+  apiHelpers.getCongressMemberById(req.params.id).then((politician) => {
+
+  let congressp =  {
+      member_id: politician.member_id,
+      first_name: politician.first_name,
+      last_name: politician.last_name,
+      gender: politician.gender,
+      url: politician.url,
+      twitter: politician.twitter_account,
+      facebook: politician.facebook_account,
+      youtube: politician.youtube_account
+
+    };
 
 
+  let congressrole = {
+      title: politician.roles[0].title,
+      party: politician.roles[0].party,
+      district: politician.roles[0].district,
 
-router.get('/:id', (req, res) => {
-  const myPoliticians = client.memberBioAndRoles({
-    memberId: req.params.id
+      state: politician.roles[0].state,
+      office: politician.roles[0].office,
+      start_date: politician.roles[0].start_date,
+      end_date: politician.roles[0].end_date,
+      phone: politician.roles[0].phone,
+      bills_sponsored: politician.roles[0].bills_sponsored,
+      bills_cosponsored: politician.roles[0].bills_cosponsored
+    }
+  
+    res.render('politicians/single', {politician: congressp, role: congressrole});
   });
-  myPoliticians.then((politician) => {
-    //res.json(politician);
-
-    // x = politician;
-    // console.log(x);
-
-    let congressp =  {
-      member_id: politician.results[0].member_id,
-      first_name: politician.results[0].first_name,
-      last_name: politician.results[0].last_name,
-      gender: politician.results[0].gender,
-      url: politician.results[0].url,
-      twitter: politician.results[0].twitter_account,
-      facebook: politician.results[0].facebook_account,
-      youtube: politician.results[0].youtube_account
-    };
-    //res.json(congressp);
-    let congressrole = {
-      title: politician.results[0].roles[0].title,
-      party: politician.results[0].roles[0].party,
-      district: politician.results[0].roles[0].district,
-
-      state: politician.results[0].roles[0].state,
-      office: politician.results[0].roles[0].office,
-      start_date: politician.results[0].roles[0].start_date,
-      end_date: politician.results[0].roles[0].end_date,
-      phone: politician.results[0].roles[0].phone,
-      bills_sponsored: politician.results[0].roles[0].bills_sponsored,
-      bills_cosponsored: politician.results[0].roles[0].bills_cosponsored,
-      most_recent_vote: politician.results[0].most_recent_vote
-    };
-
-    client.billsByMember({
-      memberId : req.params.id,
-      billType : 'introduced'
-    }).then((bills_introduced) => {
-      congressrole.recent_bills_introduced = bills_introduced.results[0].bills[0].short_title; })
-
-    client.billsByMember({
-      memberId : req.params.id,
-      billType : 'updated'
-    }).then((bills_updated) => {
-      congressrole.recent_bills_updated = bills_updated.results[0].bills[0].short_title;
-      res.render('politicians/single', {politician: congressp, role: congressrole});
-    }).catch((err) => {
-      console.log(err);
-      res.render('/');
-    })
-  })
+  
 });
 
 module.exports = router;
