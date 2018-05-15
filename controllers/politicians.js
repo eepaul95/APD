@@ -7,11 +7,19 @@ const client = new Congress(apiKey);
 
 const router = express.Router();
 
+
+
+
 router.get('/:id', (req, res) => {
-  client.memberBioAndRoles({
+  const myPoliticians = client.memberBioAndRoles({
     memberId: req.params.id
-  }).then((politician) => {
+  });
+  myPoliticians.then((politician) => {
     //res.json(politician);
+
+    // x = politician;
+    // console.log(x);
+
     let congressp =  {
       member_id: politician.results[0].member_id,
       first_name: politician.results[0].first_name,
@@ -34,7 +42,17 @@ router.get('/:id', (req, res) => {
       end_date: politician.results[0].roles[0].end_date,
       phone: politician.results[0].roles[0].phone,
       bills_sponsored: politician.results[0].roles[0].bills_sponsored,
-      bills_cosponsored: politician.results[0].roles[0].bills_cosponsored
+      bills_cosponsored: politician.results[0].roles[0].bills_cosponsored,
+      most_recent_vote: politician.results[0].most_recent_vote
+    };
+
+    const politician_bills = client.billsByMember({
+      memberId : req.params.id,
+      billType : 'introduced'
+    });
+
+    politician_bills.then((bills_introduced) => {
+      congressrole.recent_bills_introduced = bills_introduced.results[0].bills[0].short_title;
 
     }
 
