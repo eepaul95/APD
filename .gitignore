@@ -20,6 +20,10 @@ coverage
 # nyc test coverage
 .nyc_output
 
+coverage
+package-lock.json
+
+
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
@@ -59,3 +63,4 @@ typings/
 
 # next.js build output
 .next
+
