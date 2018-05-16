@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const url = require('url');
 const helpers = require('../middlewares/viewHelpers');
+const apiPreloaded = require('../middlewares/api-preloaded');
 const madison = require('madison');
 const zipcode = require('zipcode');
 
 
 router.get('/', (req, res) => {
-    const q = req.url.split('=')[1].replace(/\+/g,' '); // /?q=blah+asdf => blah asdf
-    var stateAbbr, stateName;
+    const q = url.parse(req.url, true).query.q;
+    var stateAbbr, stateName, bioguide, badQuery, redirect, interpret;
     
     // Check if all numbers
     if (!isNaN(q)) {
@@ -26,14 +28,27 @@ router.get('/', (req, res) => {
         }
     }
     else { // Must be state name?!
-        stateName= helpers.checkStateWithSpace(q);
+        stateName = helpers.checkStateWithSpace(q);
         stateAbbr = madison.getStateAbbrevSync(stateName);
     }
     
-    const isNotState = (!stateAbbr);
+    if (!stateAbbr) { // Not a state name; try politican by full name
+        var index = apiPreloaded.getIndexFromFullName(q);
+        if(index !== undefined) {
+            bioguide = apiPreloaded.getBioguideFromIndex(index);
+            badQuery = false;
+            redirect = "/politicians/" + bioguide;
+            interpret = q;
+        } else {
+            badQuery = true;
+        }
+    } else {
+        badQuery = false;
+        redirect = "/states/" + stateName;
+        interpret = stateName;
+    }
 
-
-    res.render('search', {query: q, isNotState: isNotState, state: stateName, stateAbbr: stateAbbr});
+    res.render('search', {query: q, interpret: interpret, badQuery: badQuery, href: redirect});
 });
 
 
