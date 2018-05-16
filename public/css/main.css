@@ -41,6 +41,10 @@
   }
 }
 
+.newsArticles .card-columns {
+  column-count: 2;
+}
+
 #senators .twitter-follow-button, #representatives .twitter-follow-button {
   margin-top: 0px;
  /* margin-bottom: -20px; */

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/typeaheadjs.css">
     <!-- for brand icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
   </head>
@@ -33,7 +34,7 @@
                </li>
             </ul>
             <form action="/search" method="get" class="form-inline my-2 my-md-0">
-               <input name="q" class="form-control mr-sm-2" type="text" placeholder="State or Zip Code">
+               <input name="q" class="form-control mr-sm-2 main-search" type="text" placeholder="State or Zip Code">
                <input class="btn btn-outline-light my-2 my-sm-0" type="submit" value="Search">
             </form>
          </div>
@@ -47,6 +48,7 @@
     <!--Popper then Bootstrap-->
     <script src="/popper.js/dist/umd/popper.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/typeahead.js/typeahead.bundle.min.js"></script>
     <script src="/js/search.js"></script>
     <script>
 $(document).ready(function() {
