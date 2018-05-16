@@ -50,7 +50,7 @@ router.get('/:id', cache(7),  (req, res) => {
 
 
 
-          politician_name = politician.results[0].first_name + " " + politician.results[0].last_name
+          politician_name = congressp.first_name + " " + congressp.last_name
 
           newsapi.v2.everything({
             q: politician_name,
@@ -68,7 +68,6 @@ router.get('/:id', cache(7),  (req, res) => {
                 top_ten_articles.push(politician_articles.articles[i]);
               }
             }
-            console.log(top_ten_articles);
             if(top_ten_articles.length > 0){
               res.render('politicians/single', {politician: congressp, role: congressrole, newsArticles: top_ten_articles});
             }
