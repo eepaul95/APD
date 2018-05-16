@@ -6,7 +6,8 @@ var api, name = {
     match: {
         first: {},
         middle: {},
-        last: {}
+        last: {},
+        full: {}
     },
     first: [],
     middle: [],
@@ -19,9 +20,13 @@ request('https://theunitedstates.io/congress-legislators/legislators-current.jso
         api = JSON.parse(b);
         
         for (var i = 0, l = api.length; i < l; i++) {
+            // Full name
+            var tname = api[i].name.official_full.toLowerCase();
+            name.match.full[tname] = i;
+            
             // Attempt to add to array. If no array exists, make a new array with a number in it.
             // Last name
-            var tname = api[i].name.last.toLowerCase();
+            tname = api[i].name.last.toLowerCase();
             try {
                 name.match.last[tname].push(i);
             } catch (e) {
@@ -61,19 +66,23 @@ apiPreloaded.getBioguideFromIndex = function(index) {
     return api[index].id.bioguide;
 };
 
+apiPreloaded.getFullNameFromIndex = function(index) {
+    return api[index].name.official_full;
+};
+
+apiPreloaded.getIndexFromFullName = function(fname) {
+    return name.match.full[fname.toLowerCase()];
+};
+
 apiPreloaded.getCandidatesFromPartial = function(query) {
-    var partial = query.toLowerCase()
-        candidate = {
-        last: [],
-        first: [],
-        middle: []
-    }
+    var partial = query.toLowerCase(),
+        candidate = [];
     // by Last Name
     for (var i = 0; i < name.last.length; i++) {
         if (name.last[i].substring(0, partial.length) === partial) {
             var list = name.match.last[name.last[i]]
             for (var j = 0; j < list.length; j++)
-                candidate.last.push(list[j]);
+                candidate.push([this.getFullNameFromIndex(list[j]), this.getBioguideFromIndex(list[j])]);
         };
     }
     // by First Name
@@ -81,7 +90,7 @@ apiPreloaded.getCandidatesFromPartial = function(query) {
         if (name.first[i].substring(0, partial.length) === partial) {
             var list = name.match.first[name.first[i]]
             for (var j = 0; j < list.length; j++)
-                candidate.first.push(list[j]);
+                candidate.push([this.getFullNameFromIndex(list[j]), this.getBioguideFromIndex(list[j])]);
         };
     }
     // by Middle Name
@@ -89,10 +98,14 @@ apiPreloaded.getCandidatesFromPartial = function(query) {
         if (name.middle[i].substring(0, partial.length) === partial) {
             var list = name.match.middle[name.middle[i]]
             for (var j = 0; j < list.length; j++)
-                candidate.middle.push(list[j]);
+                candidate.push([this.getFullNameFromIndex(list[j]), this.getBioguideFromIndex(list[j])]);
         };
     }
     
     return candidate;
 };
 
+// In case anyone want to explore this API:
+apiPreloaded.getFullDataFromIndex = function(index) {
+    return api[index];
+};
