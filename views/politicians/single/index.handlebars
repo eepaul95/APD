@@ -1,18 +1,5 @@
 <main role="main" class="container">
 
-<!-- Facebook Button Widget Script -->
-<div id="fb-root"></div>
-<script>(function (d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- YouTube Button Widget Script -->
-<script src="https://apis.google.com/js/platform.js"></script>
-
 <div>
 	<div id="politician">
 		<h2> {{politician.first_name}} {{politician.last_name}} </h2>
@@ -79,20 +66,17 @@
       					<div class="card card-body" id="wrapper">
 							<div class="row">
 							<div class="column">
-        					{{#if politician.twitter}}
-        					<div class="d-inline">
-							<a href="https://twitter.com/{{politician.twitter}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
-							</div>
-				
-							{{#if politician.facebook}}
-							<div class="d-inline fb-like" data-href="https://www.facebook.com/{{politician.facebook}}" data-layout="button" data-action="like"
-				 			data-size="small" data-show-faces="false" data-share="false"></div>
-							
-							{{/if}}
-							{{#if politician.youtube}}
-							<div class="d-inline g-ytsubscribe" data-channel="{{politician.youtube}}" data-layout="default" data-count="hidden"></div>
-							{{/if}}
+        {{#if politician.twitter}}
+          <a class="btn btn-info btn-sm" href="https://twitter.com/{{politician.twitter}}" role="button"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
+        {{/if}}
+        
+        {{#if politician.facebook}}
+          <a class="btn btn-primary btn-sm" href="https://www.facebook.com/{{politician.facebook}}" role="button"><i class="fab fa-facebook"></i>&nbsp;Facebook</a>
+        {{/if}}
+
+        {{#if politician.youtube}}
+          <a class="btn btn-danger btn-sm" href="https://www.youtube.com/{{politician.youtube}}" role="button"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
+        {{/if}}
 							</div>
 							</div>
       					</div>
@@ -148,3 +132,16 @@
 
 </div>
 </main>
+
+<!-- Facebook Button Widget Script -->
+<div id="fb-root"></div>
+<script>(function (d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.12';
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- YouTube Button Widget Script -->
+<script src="https://apis.google.com/js/platform.js"></script>
