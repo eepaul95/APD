@@ -47,7 +47,7 @@
     }
     
     function mapMouseleave(g) {
-        domStateName.html("");
+        domStateName.html("<i>Select a state</i>");
     }
     
     function mapClick(g,n) {
