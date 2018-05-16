@@ -20,12 +20,24 @@
 		<div class="row justify-content-left">
 			<div class="col-md-3 justify-content-left">
 				<img src="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
+				<br><br>
+				{{#if politician.twitter}}
+				<a href="https://twitter.com/{{politician.twitter}}" class="twitter-follow-button" data-show-count="false">Follow</a>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
+				<br> {{#if politician.facebook}}
+				<div class="fb-like" data-href="https://www.facebook.com/{{politician.facebook}}" data-layout="button" data-action="like"
+				 data-size="small" data-show-faces="false" data-share="false"></div>
+				{{/if}}
+				{{#if politician.youtube}}
+				<div class="g-ytsubscribe" data-channel="{{politician.youtube}}" data-layout="default" data-count="hidden"></div>
+				{{/if}}
 			</div>
-			<div class="col-md-8 justify-content-left">
-			<table>
+			<div class="col-md-8 justify-content-right">
+			<div class="card">
+			<div class="card-body">
+			<table style="margin: 0 auto;">
 				<tr> <td><b> Role:</b></td> <td align="center"> {{role.title}} </td> </tr>
 				<tr> <td><b> State:</b></td> <td align="center"> {{role.state}}</td> </tr>
-				<tr> <td><b> District:</b></td> <td align="center"> {{role.district}} </td> </tr>
 
 				<td>&nbsp;</td><td>&nbsp;</td>
 				<tr> <td><b> Office:</b></td> <td align="center"> {{role.office}} </td> </tr>
@@ -33,32 +45,47 @@
 
 				<tr> <td><b> Start Date:</b></td> <td align="center"> {{role.start_date}} </td> </tr>
 				<tr> <td><b> End Date:</b></td> <td align="center"> {{role.end_date}} </td> </tr>
-				<tr> <td><b> Phone:</b></td> <td align="center"> {{role.phone}} </td> </tr>
-				<tr> <td><b> Bills sponsored:</b></td> <td align="center"> {{role.bills_sponsored}} </td> </tr>
-				<tr> <td><b> Bills co-sponsored:</b></td> <td align="center"> {{role.bills_cosponsored}} </td> </tr>
-				<tr> <td><b> Most recent Vote:</b></td> <td align="center"> {{role.most_recent_vote}} </td> </tr>
-				<tr> <td><b> Most recent Introduced Bill:</b></td> <td align="center"> {{role.recent_bills_introduced}} </td> </tr>
-				<tr> <td><b> Most recent Updated Bill:</b></td> <td align="center"> {{role.recent_bills_updated}} </td> </tr>
+				<tr> <td><b> Phone:</b></td> <td align="center"> <a href="tel:{{role.phone}}">{{role.phone}}</a> </td> </tr>
 
 				<td>&nbsp;</td><td>&nbsp;</td>
 				<tr> <td><b> URL:</b></td> <td align="center"> <a href={{politician.url}}>{{politician.url}}</a> </td> </tr>
 			</table>
-			{{#if politician.twitter}}
-				<a href="https://twitter.com/{{politician.twitter}}" class="twitter-follow-button" data-show-count="false">Follow</a>
-				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
-				<br> {{#if politician.facebook}}
-				<div class="fb-like" data-href="https://www.facebook.com/{{politician.facebook}}" data-layout="button" data-action="like"
-				 data-size="small" data-show-faces="false" data-share="false"></div>
-				{{/if}}
-				<br> {{#if politician.youtube}}
-				<div class="g-ytsubscribe" data-channel="{{politician.youtube}}" data-layout="default" data-count="hidden"></div>
-				{{/if}}
+			</div>
+			</div>
+			<br>
+			<p>
+  			<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Bills Sponsored</a>
+  			<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Recent Bills</button>
+			</p>
+
+			<div class="row">
+  				<div class="col">
+    			<div class="collapse multi-collapse" id="multiCollapseExample1">
+      			<div class="card card-body">
+        		<p><b> Bills sponsored:</b> {{role.bills_sponsored}}</p>
+        		&nbsp;
+        		<p><b> Bills co-sponsored:</b> {{role.bills_cosponsored}}</p>
+        		&nbsp;
+        		<p><b> Most recent Vote:</b> {{role.most_recent_vote}} </p>
+      			</div>
+    		</div>
+  			</div>
+  			<div class="col">
+    		<div class="collapse multi-collapse" id="multiCollapseExample2">
+      		<div class="card card-body">
+        	<p><b> Most recent Introduced Bill:</b> {{role.recent_bills_introduced}} </p>
+       		&nbsp;
+        <p><b> Most recent Updated Bill:</b> {{role.recent_bills_updated}}</p>
+      	</div>
+    	</div>
+  		</div>
+		</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-<div class="container">
+<hr class="small" />
+<div class=".container-fluid">
 	<div class="row">
 		<!-- Twitter Feed -->
 		<div class="col-md-6 justify-content-center">
