@@ -4,34 +4,68 @@
 	<div id="politician">
 		<h2> {{politician.first_name}} {{politician.last_name}} </h2>
 		<hr class="small" />
-		<div class="row justify-content-left">
-			<div class="col-md-3 justify-content-left">
-				<img src="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-lg-3 mb-3 mb-sm-0">
+				<img class="float-left rounded w-100" src="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
 			</div>
-			<div class="col-md-8 justify-content-left">
-			<table>
-				<tr> <td><b> Role:</b></td> <td align="center"> {{role.title}} </td> </tr>
+			<div class="col">
+			<div class="card">
+			<div class="card-body" style="font-size:150%;">
+			<table style="margin: 0 auto;">
+				<tr > <td><b> Role:</b></td> <td align="center"> {{role.title}} </td> </tr>
 				<tr> <td><b> State:</b></td> <td align="center"> {{role.state}}</td> </tr>
-				<tr> <td><b> District:</b></td> <td align="center"> {{role.district}} </td> </tr>
 
 				<td>&nbsp;</td><td>&nbsp;</td>
-				<tr> <td><b> Office:</b></td> <td align="center"> {{role.office}} </td> </tr>
 				<tr> <td><b> Political party:</b></td> <td align="center"> {{role.party}} </td> </tr>
 
 				<tr> <td><b> Start Date:</b></td> <td align="center"> {{role.start_date}} </td> </tr>
 				<tr> <td><b> End Date:</b></td> <td align="center"> {{role.end_date}} </td> </tr>
-				<tr> <td><b> Phone:</b></td> <td align="center"> {{role.phone}} </td> </tr>
-				<tr> <td><b> Bills sponsored:</b></td> <td align="center"> {{role.bills_sponsored}} </td> </tr>
-				<tr> <td><b> Bills co-sponsored:</b></td> <td align="center"> {{role.bills_cosponsored}} </td> </tr>
-				<tr> <td><b> Most recent Vote:</b></td> <td align="center"> {{role.most_recent_vote}} </td> </tr>
-				<tr> <td><b> Most recent Introduced Bill:</b></td> <td align="center"> {{role.recent_bills_introduced}} </td> </tr>
-				<tr> <td><b> Most recent Updated Bill:</b></td> <td align="center"> {{role.recent_bills_updated}} </td> </tr>
-
-				<td>&nbsp;</td><td>&nbsp;</td>
-				<tr> <td><b> URL:</b></td> <td align="center"> <a href={{politician.url}}>{{politician.url}}</a> </td> </tr>
 			</table>
+			</div>
+			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
 			<br>
-			<div class="btn-group social-media">
+
+				<div class="nav nav-pills mb-3" role="tablist">
+					<a class="nav-item nav-link active" id="tab-bills-sponsored" data-toggle="tab" href="#bills-sponsored" role="tab" aria-controls="bills-sponsored" aria-selected="true">Bills Sponsored</a>
+					<a class="nav-item nav-link" id="tab-recent-bills" data-toggle="tab" href="#recent-bills" role="tab" aria-controls="recent-bills" aria-selected="false">Recent Bills</a>
+					<a class="nav-item nav-link" id="tab-contact-information" data-toggle="tab" href="#contact-information" role="tab" aria-controls="contact-information" aria-selected="false">Contact Information</a>
+					<a class="nav-item nav-link" id="tab-social-media" data-toggle="tab" href="#social-media" role="tab" aria-controls="social-media" aria-selected="false">Social Media</a>
+				</div>
+
+  				<div class="tab-content" id="tab-info">
+    				<div class="tab-pane show active" id="bills-sponsored" role="tabpanel" aria-labelledby="tab-bills-sponsored">
+      					<div class="card card-body">
+        					<p><b> Bills sponsored:</b> {{role.bills_sponsored}}</p>
+        					&nbsp;
+        					<p><b> Bills co-sponsored:</b> {{role.bills_cosponsored}}</p>
+        					&nbsp;
+        					<p><b> Most recent Vote:</b> {{role.most_recent_vote}} </p>
+      					</div>
+    				</div>
+    				<div class="tab-pane" id="recent-bills" role="tabpanel" aria-labelledby="tab-recent-bills">
+      					<div class="card card-body">
+        					<p><b> Most recent Introduced Bill:</b> {{role.recent_bills_introduced}} </p>
+       						&nbsp;
+        					<p><b> Most recent Updated Bill:</b> {{role.recent_bills_updated}}</p>
+      					</div>
+    				</div>
+    				<div class="tab-pane" id="contact-information" role="tabpanel" aria-labelledby="tab-contact-information">
+      					<div class="card card-body">
+        					<table>
+        						<tr> <td><b> Office Address:</b></td> <td align="center"> {{role.office}} </td> </tr>
+								<tr> <td><b> Phone:</b></td> <td align="center"> <a href="tel:{{role.phone}}">{{role.phone}}</a> </td> </tr>
+								<tr> <td><b> Website:</b></td> <td align="center"> <a href={{politician.url}}>{{politician.url}}</a> </td> </tr>
+							</table>
+      					</div>
+    				</div>
+    				<div class="tab-pane" id="social-media" role="tabpanel" aria-labelledby="tab-social-media">
+      					<div class="card card-body" id="wrapper">
+							<div class="row">
+							<div class="column">
         {{#if politician.twitter}}
           <a class="btn btn-info btn-sm" href="https://twitter.com/{{politician.twitter}}" role="button"><i class="fab fa-twitter"></i>&nbsp;Twitter</a>
         {{/if}}
@@ -43,21 +77,26 @@
         {{#if politician.youtube}}
           <a class="btn btn-danger btn-sm" href="https://www.youtube.com/{{politician.youtube}}" role="button"><i class="fab fa-youtube"></i>&nbsp;YouTube</a>
         {{/if}}
-      </div>
+							</div>
+							</div>
+      					</div>
+    				</div>
+  				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<br>
-
-{{#if newsArticles}}
-<div id="newArticles">
-	<div class="card-columns">
-	{{#each newsArticles}}
-		<div class="card">
-			<img class="card-img-top" src="{{this.urlToImage}}" alt="Card image cap">
-			<div class="card-body">
+</div>
+<hr class="small" />
+<div class=".container-fluid">
+	{{#if newsArticles}}
+		<div id="newArticles">
+			<div class="card-columns">
+			{{#each newsArticles}}
+				<div class="card">
+				<img class="card-img-top" src="{{this.urlToImage}}" alt="Card image cap">
+				<div class="card-body">
 				<h5 class="card-title">{{this.title}}</h5>
 				<p class="card-text">{{this.description}}</p>
 				<br>
