@@ -11,11 +11,17 @@ router.get('/', (req, res) => {
 }).then(response => {
   let articles = [];
   let articlesLength = response.articles.length;
-  for (i = 0; i < articlesLength; i++){
-    articles.push(response.articles[i]);
-  }
+  articles = response.articles.map(article => {
+                return article;
+              }).sort((article_1,article_2) => {
+                  return article_1.publishedAt > article_2.publishedAt; 
+            });
+
+  // for (i = 0; i < articlesLength; i++){
+    // articles.push(response.articles[i]);
+  // }
   //console.log(articles[1].title);
-  res.render('home', {newsArticles: response.articles});
+  res.render('home', {newsArticles: articles});
 }).catch((err) => {
     console.log(err);
     res.render('/');
