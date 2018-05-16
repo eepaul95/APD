@@ -80,7 +80,6 @@ router.get('/:id', cache(7),  (req, res) => {
       }).catch((err) => {
           console.log(err);
           res.render('/');
-        })
       })
     })
 });
