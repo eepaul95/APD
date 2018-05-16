@@ -2,40 +2,56 @@ const request = require('request');
 
 const apiPreloaded = {};
 
-var api, name = {};
+var api, name = {
+    match: {
+        first: {},
+        middle: {},
+        last: {}
+    },
+    first: [],
+    middle: [],
+    last: []
+};
+
 // Download local data from API
 request('https://theunitedstates.io/congress-legislators/legislators-current.json', function (e,r,b) {
     if (!e && r.statusCode == 200) {
         api = JSON.parse(b);
         
-        name.last = {};
-        name.first = {};
-        name.middle = {};
         for (var i = 0, l = api.length; i < l; i++) {
             // Attempt to add to array. If no array exists, make a new array with a number in it.
             // Last name
+            var tname = api[i].name.last.toLowerCase();
             try {
-                name.last[api[i].name.last].push(i);
+                name.match.last[tname].push(i);
             } catch (e) {
-                name.last[api[i].name.last] = [i];
+                name.match.last[tname] = [i];
+                name.last.push(tname);
             }
             
             // First name
+            tname = api[i].name.first.toLowerCase();
             try {
-                name.first[api[i].name.first].push(i);
+                name.match.first[tname].push(i);
             } catch (e) {
-                name.first[api[i].name.first] = [i];
+                name.match.first[tname] = [i];
+                name.first.push(tname);
             }
             
             // Middle name
             if (api[i].name.middle !== undefined) {
+                tname = api[i].name.last.toLowerCase();
                 try {
-                    name.middle[api[i].name.middle].push(i);
+                    name.match.middle[tname].push(i);
                 } catch (e) {
-                    name.middle[api[i].name.middle] = [i];
+                    name.match.middle[tname] = [i];
+                    name.middle.push(tname);
                 }
             }
         }
+        name.first.sort();
+        name.middle.sort();
+        name.last.sort();
     }
 });
 
@@ -45,30 +61,38 @@ apiPreloaded.getBioguideFromIndex = function(index) {
     return api[index].id.bioguide;
 };
 
-apiPreloaded.getCandidatesFromPartial = function(partial) {
-    var candidate = {
+apiPreloaded.getCandidatesFromPartial = function(query) {
+    var partial = query.toLowerCase()
+        candidate = {
         last: [],
         first: [],
         middle: []
     }
     // by Last Name
-    for (var lastName in name.last) {
-        if (lastName.substring(0, partial.length) === partial) {
-            candidate.last.push(name.last[lastName]);
+    for (var i = 0; i < name.last.length; i++) {
+        if (name.last[i].substring(0, partial.length) === partial) {
+            var list = name.match.last[name.last[i]]
+            for (var j = 0; j < list.length; j++)
+                candidate.last.push(list[j]);
         };
     }
     // by First Name
-    for (var firstName in name.first) {
-        if (firstName.substring(0, partial.length) === partial) {
-            candidate.first.push(name.first[firstName]);
+    for (var i = 0; i < name.first.length; i++) {
+        if (name.first[i].substring(0, partial.length) === partial) {
+            var list = name.match.first[name.first[i]]
+            for (var j = 0; j < list.length; j++)
+                candidate.first.push(list[j]);
         };
     }
     // by Middle Name
-    for (var middleName in name.middle) {
-        if (middleName.substring(0, partial.length) === partial) {
-            candidate.middle.push(name.middle[middleName]);
+    for (var i = 0; i < name.middle.length; i++) {
+        if (name.middle[i].substring(0, partial.length) === partial) {
+            var list = name.match.middle[name.middle[i]]
+            for (var j = 0; j < list.length; j++)
+                candidate.middle.push(list[j]);
         };
     }
     
     return candidate;
 };
+
