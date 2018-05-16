@@ -1,5 +1,4 @@
 <main role="main" class="container">
-<link rel="stylesheet" href="/css/politicians.css">
 
 <!-- Facebook Button Widget Script -->
 <div id="fb-root"></div>
@@ -18,13 +17,11 @@
 	<div id="politician">
 		<h2> {{politician.first_name}} {{politician.last_name}} </h2>
 		<hr class="small" />
-		<div class="row justify-content-left">
-			<div class="col-md-3 justify-content-left">
-				<img src="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
-				<br><br>
-				
+		<div class="row">
+			<div class="col-xs-12 col-sm-4 col-lg-3 mb-3 mb-sm-0">
+				<img class="float-left rounded w-100" src="https://theunitedstates.io/images/congress/225x275/{{politician.member_id}}.jpg" alt="{{politician.first_name}} {{politician.last_name}}">
 			</div>
-			<div class="col-md-8 justify-content-right">
+			<div class="col">
 			<div class="card">
 			<div class="card-body" style="font-size:150%;">
 			<table style="margin: 0 auto;">
@@ -39,16 +36,20 @@
 			</table>
 			</div>
 			</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
 			<br>
 
 			<p>
-  				<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Bills Sponsored</a>
+  				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample1" aria-expanded="false" aria-controls="multiCollapseExample1">Bills Sponsored</button>
   				
   				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Recent Bills</button>
   				
-  				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample2">Contact Information</button>
+  				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">Contact Information</button>
 
-  				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample2">Social Media</button>
+  				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample4" aria-expanded="false" aria-controls="multiCollapseExample4">Social Media</button>
 			</p>
 
 			<div class="row">
@@ -91,20 +92,24 @@
   				<div>
     				<div class="collapse multi-collapse" id="multiCollapseExample4" style="width: 47rem;">
       					<div class="card card-body" id="wrapper">
+							<div class="row">
+							<div class="column">
         					{{#if politician.twitter}}
-        					<div id="c1" style="width: 75px;" >
+        					<div class="d-inline">
 							<a href="https://twitter.com/{{politician.twitter}}" class="twitter-follow-button" data-show-count="false">Follow</a>
 							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>{{/if}}
 							</div>
 				
 							{{#if politician.facebook}}
-							<div id="c1" style="width: 75px;" class="fb-like" data-href="https://www.facebook.com/{{politician.facebook}}" data-layout="button" data-action="like"
+							<div class="d-inline fb-like" data-href="https://www.facebook.com/{{politician.facebook}}" data-layout="button" data-action="like"
 				 			data-size="small" data-show-faces="false" data-share="false"></div>
 							
 							{{/if}}
 							{{#if politician.youtube}}
-							<div style="width: 75px;" class="g-ytsubscribe" data-channel="{{politician.youtube}}" data-layout="default" data-count="hidden"></div>
+							<div class="d-inline g-ytsubscribe" data-channel="{{politician.youtube}}" data-layout="default" data-count="hidden"></div>
 							{{/if}}
+							</div>
+							</div>
       					</div>
     				</div>
   				</div>
