@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const helpers = require('../middlewares/viewHelpers');
+const apiPreloaded = require('../middlewares/api-preloaded');
 const madison = require('madison');
 const zipcode = require('zipcode');
 
