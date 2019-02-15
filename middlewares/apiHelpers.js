@@ -46,6 +46,8 @@ apiHelpers.getIntroducedBillsByMemberId = (id) => {
 							return bills.results[0].bills;
 						});
 
+	console.log(introducedBills);
+
 	return introducedBills
 }
 
@@ -58,6 +60,7 @@ apiHelpers.getUpdatedBillsByMemberId = (id) => {
 							return bills.results[0].bills;
 						});
 
+	console.log(updatedBills);					
 	return updatedBills
 }
 
